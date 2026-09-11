@@ -1,0 +1,38 @@
+.env
+backend/.env
+venv/
+__pycache__/
+backend/uploads/
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+venv313/
+.env
+.env.*
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated files
+generated_reports/
+*.pdf
+
+# Logs
+*.log
+
+# Node
+node_modules/
+
+# Temporary files
+*.tmp
+*.temp

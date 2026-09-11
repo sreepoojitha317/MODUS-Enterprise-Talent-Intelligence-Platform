@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Adaptive Assessment | METI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-page assessment-page">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <a href="index.html" class="auth-logo">
+            METI
+        </a>
+
+        <div class="assessment-nav-right">
+
+            <span class="assessment-nav-label">
+                ADAPTIVE ASSESSMENT
+            </span>
+
+            <span class="assessment-secure">
+                ● Secure
+            </span>
+
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+    <main class="assessment-container">
+
+        <div class="assessment-shell">
+
+
+            <!-- TOP INTRO -->
+            <section class="assessment-hero">
+
+                <div>
+
+                    <p class="eyebrow">
+                        MANAGEMENT CONSULTING ASSESSMENT
+                    </p>
+
+                    <h1>
+                        Let's understand
+                        <span>how you think.</span>
+                    </h1>
+
+                    <p class="assessment-subtitle">
+                        Your assessment is personalised using the professional
+                        evidence provided in your profile and CV.
+                    </p>
+
+                </div>
+
+                <div class="assessment-status">
+
+                    <div class="status-dot"></div>
+
+                    <div>
+                        <strong id="candidateName">
+                            Candidate
+                        </strong>
+
+                        <span>
+                            Resume-based assessment
+                        </span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RESUME INSIGHT -->
+            <section class="resume-insight">
+
+                <div class="insight-icon">
+                    ✦
+                </div>
+
+                <div class="insight-content">
+
+                    <div class="insight-label">
+                        PERSONALISED FROM YOUR PROFILE
+                    </div>
+
+                    <h3 id="resumeInsightTitle">
+                        Analysing your professional evidence...
+                    </h3>
+
+                    <p id="resumeInsightText">
+                        METI is reviewing your education, experience,
+                        skills and project evidence to personalise
+                        your assessment.
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- PROGRESS -->
+            <section class="assessment-progress-card">
+
+                <div class="progress-info">
+
+                    <div>
+
+                        <span class="progress-small">
+                            ASSESSMENT PROGRESS
+                        </span>
+
+                        <strong id="questionCounter">
+                            Question 1 of 5
+                        </strong>
+
+                    </div>
+
+                    <strong id="progressText">
+                        10%
+                    </strong>
+
+                </div>
+
+                <div class="progress-track">
+
+                    <div
+                        id="assessmentProgress"
+                        class="progress-fill assessment-progress-fill"
+                        style="width: 10%;">
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- QUESTION CARD -->
+            <section class="question-card">
+
+                <div class="question-top">
+
+                    <div class="competency-badge">
+                        <span>◆</span>
+                        <span id="questionCategory">
+                            Strategy & Enterprise Thinking
+                        </span>
+                    </div>
+
+                    <span class="question-type">
+                        EVIDENCE BASED
+                    </span>
+
+                </div>
+
+
+                <div class="question-number">
+                    QUESTION <span id="questionNumber">01</span>
+                </div>
+
+
+                <h2 id="questionText">
+                    Loading your personalised question...
+                </h2>
+
+
+                <p class="question-help">
+                    Use a real example from your academic work,
+                    internship, project or professional experience
+                    wherever possible.
+                </p>
+
+
+                <!-- ANSWER -->
+                <div class="answer-wrapper">
+
+                    <div class="answer-header">
+
+                        <label for="answerText">
+                            Your response
+                        </label>
+
+                        <span>
+                            Be specific and evidence-based
+                        </span>
+
+                    </div>
+
+                    <textarea
+                        id="answerText"
+                        rows="8"
+                        placeholder="Type your answer here...
+
+                For example:
+                • What was the situation?
+                • What approach did you take?
+                • What was the result?
+                • What did you learn?"
+                    ></textarea>
+
+                    <!-- SUGGESTED ANSWER -->
+                    <div class="suggested-answer-row">
+
+                        <button
+                            id="sampleAnswerBtn"
+                            class="sample-answer-btn"
+                            type="button">
+
+                            💡 Use Suggested Answer
+
+                        </button>
+
+                        <span class="suggested-answer-hint">
+                            Need help? Use a sample response for this question.
+                        </span>
+
+                    </div>
+
+                    <div class="answer-footer">
+
+                        <span id="characterCount">
+                            0 characters
+                        </span>
+
+                        <span>
+                            Your answer will be evaluated for evidence,
+                            reasoning and consulting capability.
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- MESSAGES -->
+                <div
+                    id="assessmentError"
+                    class="form-message error-message">
+                </div>
+
+                <div
+                    id="assessmentSuccess"
+                    class="form-message success-message">
+                </div>
+
+
+                <!-- SUBMIT -->
+                <button
+                    id="submitAnswer"
+                    class="assessment-submit"
+                    type="button">
+
+                    <span>
+                        Submit Answer
+                    </span>
+
+                    <span class="submit-arrow">
+                        →
+                    </span>
+
+                </button>
+
+            </section>
+
+
+            <!-- HOW IT WORKS -->
+            <section class="assessment-how">
+
+                <div class="how-item active">
+
+                    <div class="how-icon">
+                        01
+                    </div>
+
+                    <div>
+                        <strong>
+                            Answer
+                        </strong>
+
+                        <span>
+                            Share your actual experience
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="how-line"></div>
+
+
+                <div class="how-item">
+
+                    <div class="how-icon">
+                        02
+                    </div>
+
+                    <div>
+                        <strong>
+                            Evaluate
+                        </strong>
+
+                        <span>
+                            Evidence is analysed
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <div class="how-line"></div>
+
+
+                <div class="how-item">
+
+                    <div class="how-icon">
+                        03
+                    </div>
+
+                    <div>
+                        <strong>
+                            Adapt
+                        </strong>
+
+                        <span>
+                            Follow-up when needed
+                        </span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <p class="assessment-footer">
+                METI uses your responses to understand demonstrated capability,
+                development areas and professional readiness.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1844 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>METI | Assessment Report</title>
+
+    <!-- Report CSS -->
+    <link rel="stylesheet"
+          href="report.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         REPORT PAGE
+    ========================================== -->
+
+    <div class="report-page">
+
+
+        <!-- =====================================
+             REPORT HEADER
+        ====================================== -->
+
+        <header class="report-header">
+
+            <div class="report-brand">
+
+                <div class="report-logo">
+                    M
+                </div>
+
+                <div>
+
+                    <h1>
+                        METI
+                    </h1>
+
+                    <p>
+                        Management Consulting
+                        Assessment Platform
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="report-header-right">
+
+                <span class="report-label">
+                    ASSESSMENT REPORT
+                </span>
+
+                <span id="reportDate">
+                    --
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =====================================
+             CANDIDATE INFORMATION
+        ====================================== -->
+
+        <section class="report-section candidate-section">
+
+            <div class="section-heading">
+
+                <p class="section-eyebrow">
+                    CANDIDATE PROFILE
+                </p>
+
+                <h2>
+                    Candidate Information
+                </h2>
+
+            </div>
+
+
+            <div class="candidate-grid">
+
+
+                <div class="candidate-avatar"
+                     id="candidateAvatar">
+
+                    C
+
+                </div>
+
+
+                <div class="candidate-details">
+
+                    <h3 id="candidateName">
+                        Candidate
+                    </h3>
+
+                    <p id="candidateEmail">
+                        candidate@example.com
+                    </p>
+
+                </div>
+
+
+                <div class="candidate-meta">
+
+                    <div>
+
+                        <span>
+                            Assessment
+                        </span>
+
+                        <strong>
+                            Management Consulting
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Version
+                        </span>
+
+                        <strong>
+                            1.0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             EXECUTIVE SUMMARY
+        ====================================== -->
+
+        <section class="report-section">
+
+            <div class="section-heading">
+
+                <p class="section-eyebrow">
+                    EXECUTIVE SUMMARY
+                </p>
+
+                <h2>
+                    Assessment Overview
+                </h2>
+
+                <p>
+                    Summary of the candidate's demonstrated
+                    capability, potential and consulting readiness.
+                </p>
+
+            </div>
+
+
+            <div class="metric-grid">
+
+
+                <!-- CCI -->
+
+                <div class="metric-card">
+
+                    <span class="metric-label">
+                        CCI
+                    </span>
+
+                    <strong id="cciScore">
+                        --
+                    </strong>
+
+                    <small>
+                        Current Capability
+                    </small>
+
+                    <div class="metric-progress">
+
+                        <div id="cciProgress"></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CPI -->
+
+                <div class="metric-card">
+
+                    <span class="metric-label">
+                        CPI
+                    </span>
+
+                    <strong id="cpiScore">
+                        --
+                    </strong>
+
+                    <small>
+                        Candidate Potential
+                    </small>
+
+                    <div class="metric-progress">
+
+                        <div id="cpiProgress"></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- CRI -->
+
+                <div class="metric-card">
+
+                    <span class="metric-label">
+                        CRI
+                    </span>
+
+                    <strong id="criScore">
+                        --
+                    </strong>
+
+                    <small>
+                        Client Readiness
+                    </small>
+
+                    <div class="metric-progress">
+
+                        <div id="criProgress"></div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Evidence -->
+
+                <div class="metric-card">
+
+                    <span class="metric-label">
+                        EVIDENCE
+                    </span>
+
+                    <strong id="evidenceScore">
+                        --
+                    </strong>
+
+                    <small>
+                        Evidence Confidence
+                    </small>
+
+                    <div class="metric-progress">
+
+                        <div id="evidenceProgress"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             OVERALL POSITION
+        ====================================== -->
+
+        <section class="overall-section">
+
+            <div>
+
+                <p class="section-eyebrow">
+                    OVERALL ASSESSMENT POSITION
+                </p>
+
+                <h2 id="overallPosition">
+                    --
+                </h2>
+
+                <p id="overallDescription">
+                    Assessment position will appear here.
+                </p>
+
+            </div>
+
+
+            <div class="overall-score">
+
+                <span>
+                    Overall Score
+                </span>
+
+                <strong id="overallScore">
+                    --
+                </strong>
+
+                <small>
+                    /100
+                </small>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             SCORE PROFILE CHART
+        ====================================== -->
+
+        <section class="report-section">
+
+            <div class="section-heading">
+
+                <p class="section-eyebrow">
+                    PERFORMANCE PROFILE
+                </p>
+
+                <h2>
+                    Assessment Score Profile
+                </h2>
+
+                <p>
+                    Comparison of the key assessment indicators.
+                </p>
+
+            </div>
+
+
+            <div class="report-chart-box">
+
+                <canvas id="scoreChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             COMPETENCY PERFORMANCE
+        ====================================== -->
+
+        <section class="report-section competency-section">
+
+            <div class="section-heading">
+
+                <p class="section-eyebrow">
+                    COMPETENCY PERFORMANCE
+                </p>
+
+                <h2>
+                    Capability Across Assessment Areas
+                </h2>
+
+                <p>
+                    Performance across the competencies
+                    evaluated during the assessment.
+                </p>
+
+            </div>
+
+
+            <div class="competency-chart-box">
+
+                <canvas id="competencyChart"></canvas>
+
+            </div>
+
+
+            <div class="competency-stats">
+
+
+                <div>
+
+                    <span>
+                        Areas Evaluated
+                    </span>
+
+                    <strong id="areasEvaluated">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Strong Areas
+                    </span>
+
+                    <strong id="strongAreas">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Development Areas
+                    </span>
+
+                    <strong id="developmentAreas">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             STRENGTHS
+        ====================================== -->
+
+        <section class="report-section">
+
+            <div class="section-heading">
+
+                <p class="section-eyebrow">
+                    POSITIVE SIGNALS
+                </p>
+
+                <h2>
+                    Candidate Strengths
+                </h2>
+
+            </div>
+
+
+            <div id="strengthsList"
+                 class="report-list">
+
+                <div class="empty-state">
+
+                    Strengths will appear here.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             DEVELOPMENT GAPS
+        ====================================== -->
+
+        <section class="report-section">
+
+            <div class="section-heading">
+
+                <p class="section-eyebrow">
+                    GROWTH OPPORTUNITIES
+                </p>
+
+                <h2>
+                    Development Gaps
+                </h2>
+
+            </div>
+
+
+            <div id="gapsList"
+                 class="report-list">
+
+                <div class="empty-state">
+
+                    Development areas will appear here.
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================
+             RECOMMENDATION
+        ====================================== -->
+
+        <section class="recommendation-section">
+
+            <div class="recommendation-icon">
+                💡
+            </div>
+
+
+            <div>
+
+                <p class="section-eyebrow">
+                    ASSESSMENT RECOMMENDATION
+                </p>
+
+                <h2>
+                    Professional Development Direction
+                </h2>
+
+                <p id="recommendationText">
+
+                    Your personalized recommendation
+                    will appear here.
+
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- =====================================
+             REPORT FOOTER
+        ====================================== -->
+
+        <footer class="report-footer">
+
+            <div>
+
+                <strong>
+                    METI
+                </strong>
+
+                <span>
+                    Management Consulting Assessment Platform
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Confidential Assessment Report
+                </span>
+
+                <span>
+                    Generated electronically
+                </span>
+
+            </div>
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- =========================================
+         REPORT JAVASCRIPT
+    ========================================== -->
+
+    <script>
+
+
+        /* =========================================
+           SUPABASE
+        ========================================== */
+
+        const SUPABASE_URL =
+            "https://pjfwlddbfkaqwxghwvjw.supabase.co";
+
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            "sb_publishable_cMBcYcIajOfPSQYKHL61rg_i1cdHTUr";
+
+
+        const supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
+
+
+
+        /* =========================================
+           URL PARAMETERS
+        ========================================== */
+
+        const urlParams =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const attemptId =
+            urlParams.get("attempt_id");
+
+
+        const selectedUserId =
+            urlParams.get("user_id");
+
+        const registeredCandidateName =
+            urlParams.get("candidate_name") || "";
+
+        const registeredCandidateEmail =
+            urlParams.get("candidate_email") || "";
+
+        /* =========================================
+           GLOBAL DATA
+        ========================================== */
+
+        let assessmentData = null;
+
+        let profileData = null;
+
+        let scoreChartInstance = null;
+
+        let competencyChartInstance = null;
+
+
+
+        /* =========================================
+           SCORE HELPER
+        ========================================== */
+
+        function cleanScore(value) {
+
+            const number =
+                Number(value);
+
+
+            if (
+                Number.isNaN(number) ||
+                !Number.isFinite(number)
+            ) {
+
+                return 0;
+
+            }
+
+
+            return Math.max(
+                0,
+                Math.min(
+                    100,
+                    number
+                )
+            );
+
+        }
+
+
+
+        /* =========================================
+           SCORE LEVEL
+        ========================================== */
+
+        function getScoreLevel(score) {
+
+            score =
+                cleanScore(score);
+
+
+            if (score >= 85) {
+
+                return "Strong";
+
+            }
+
+
+            if (score >= 70) {
+
+                return "Good";
+
+            }
+
+
+            if (score >= 50) {
+
+                return "Developing";
+
+            }
+
+
+            return "Development Required";
+
+        }
+
+
+
+        /* =========================================
+           LOAD REPORT
+        ========================================== */
+
+        async function loadReport() {
+
+            try {
+
+
+                /* =================================
+                   USER
+                ================================= */
+
+                let userId =
+                    selectedUserId;
+
+
+                if (!userId) {
+
+                    const {
+                        data: { user },
+                        error
+                    } =
+                        await supabaseClient
+                            .auth
+                            .getUser();
+
+
+                    if (
+                        error ||
+                        !user
+                    ) {
+
+                        throw new Error(
+                            "Unable to identify candidate."
+                        );
+
+                    }
+
+
+                    userId =
+                        user.id;
+
+                }
+
+
+
+                /* =================================
+                   LOAD ASSESSMENT
+                ================================= */
+
+                if (attemptId) {
+
+                    const response =
+                        await fetch(
+
+                            `http://127.0.0.1:8000/assessment-result/${encodeURIComponent(
+                                attemptId
+                            )}?user_id=${encodeURIComponent(
+                                userId
+                            )}`
+
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            data.detail ||
+                            "Unable to load assessment."
+                        );
+
+                    }
+
+
+                    assessmentData =
+                        data;
+
+                }
+
+
+                /* =================================
+                   LOAD PROFILE
+                ================================= */
+
+                loadProfileData();
+
+
+                /* =================================
+                   RENDER
+                ================================= */
+
+                renderReport();
+
+
+            } catch (error) {
+
+                console.error(
+                    "Report loading error:",
+                    error
+                );
+
+                alert(
+                    error.message ||
+                    "Unable to generate report."
+                );
+
+            }
+
+        }
+
+
+
+        /* =========================================
+           LOAD PROFILE
+        ========================================= */
+
+        function loadProfileData() {
+
+            const storedProfile =
+                localStorage.getItem(
+                    "metiProfile"
+                );
+
+
+            if (storedProfile) {
+
+                try {
+
+                    profileData =
+                        JSON.parse(
+                            storedProfile
+                        );
+
+                } catch (error) {
+
+                    profileData =
+                        null;
+
+                }
+
+            }
+
+        }
+
+
+
+        /* =========================================
+           GET SCORES
+        ========================================= */
+
+        function getScores() {
+
+            if (
+                assessmentData &&
+                assessmentData.scores
+            ) {
+
+                return assessmentData.scores;
+
+            }
+
+
+            return {
+
+                cci: 0,
+
+                cpi: 0,
+
+                cri: 0,
+
+                evidence_confidence: 0
+
+            };
+
+        }
+
+
+
+        /* =========================================
+           GET FINDINGS
+        ========================================= */
+
+        function getFindings() {
+
+            if (
+                assessmentData &&
+                assessmentData.findings
+            ) {
+
+                return assessmentData.findings;
+
+            }
+
+
+            return {
+
+                strengths: [],
+
+                development_gaps: [],
+
+                recommendation:
+                    "No recommendation available."
+
+            };
+
+        }
+
+
+
+        /* =========================================
+           RENDER REPORT
+        ========================================= */
+
+        function renderReport() {
+
+            const scores =
+                getScores();
+
+
+            const findings =
+                getFindings();
+
+
+            const cci =
+                cleanScore(
+                    scores.cci
+                );
+
+
+            const cpi =
+                cleanScore(
+                    scores.cpi
+                );
+
+
+            const cri =
+                cleanScore(
+                    scores.cri
+                );
+
+
+            const evidence =
+                cleanScore(
+                    scores.evidence_confidence
+                );
+
+
+            const overall =
+                (
+                    cci +
+                    cpi +
+                    cri +
+                    evidence
+                ) / 4;
+
+
+
+            /* =================================
+               DATE
+            ================================= */
+
+            document.getElementById(
+                "reportDate"
+            ).textContent =
+                new Date().toLocaleDateString(
+                    "en-IN",
+                    {
+                        day: "2-digit",
+                        month: "short",
+                        year: "numeric"
+                    }
+                );
+
+
+
+            /* =================================
+               PROFILE
+            ================================= */
+
+           const candidateName =
+                registeredCandidateName ||
+                profileData?.full_name ||
+                profileData?.name ||
+                localStorage.getItem("candidateName") ||
+                "Candidate";
+
+            const candidateEmail =
+                registeredCandidateEmail ||
+                profileData?.email ||
+                localStorage.getItem("candidateEmail") ||
+                "candidate@example.com";
+
+            document.getElementById(
+                "candidateName"
+            ).textContent =
+                candidateName;
+
+
+            document.getElementById(
+                "candidateEmail"
+            ).textContent =
+                candidateEmail;
+
+
+            document.getElementById(
+                "candidateAvatar"
+            ).textContent =
+                candidateName
+                    .trim()
+                    .charAt(0)
+                    .toUpperCase();
+
+
+
+            /* =================================
+               SCORES
+            ================================= */
+
+            document.getElementById(
+                "cciScore"
+            ).textContent =
+                cci.toFixed(2);
+
+
+            document.getElementById(
+                "cpiScore"
+            ).textContent =
+                cpi.toFixed(2);
+
+
+            document.getElementById(
+                "criScore"
+            ).textContent =
+                cri.toFixed(2);
+
+
+            document.getElementById(
+                "evidenceScore"
+            ).textContent =
+                evidence.toFixed(2);
+
+
+
+            /* =================================
+               PROGRESS
+            ================================= */
+
+            document.getElementById(
+                "cciProgress"
+            ).style.width =
+                `${cci}%`;
+
+
+            document.getElementById(
+                "cpiProgress"
+            ).style.width =
+                `${cpi}%`;
+
+
+            document.getElementById(
+                "criProgress"
+            ).style.width =
+                `${cri}%`;
+
+
+            document.getElementById(
+                "evidenceProgress"
+            ).style.width =
+                `${evidence}%`;
+
+
+
+            /* =================================
+               OVERALL
+            ================================= */
+
+            document.getElementById(
+                "overallScore"
+            ).textContent =
+                overall.toFixed(2);
+
+
+            document.getElementById(
+                "overallPosition"
+            ).textContent =
+                getScoreLevel(
+                    overall
+                );
+
+
+            document.getElementById(
+                "overallDescription"
+            ).textContent =
+                getOverallDescription(
+                    overall
+                );
+
+
+
+            /* =================================
+               FINDINGS
+            ================================= */
+
+            renderStrengths(
+                findings
+            );
+
+
+            renderDevelopmentGaps(
+                findings
+            );
+
+
+            document.getElementById(
+                "recommendationText"
+            ).textContent =
+                findings.recommendation ||
+                "No recommendation available.";
+
+
+
+            /* =================================
+               CHARTS
+            ================================= */
+
+            renderScoreChart(
+                cci,
+                cpi,
+                cri,
+                evidence
+            );
+
+
+            renderCompetencyChart();
+
+        }
+
+
+
+        /* =========================================
+           OVERALL DESCRIPTION
+        ========================================= */
+
+        function getOverallDescription(score) {
+
+            score =
+                cleanScore(score);
+
+
+            if (score >= 85) {
+
+                return "The assessment indicates strong demonstrated capability and professional readiness.";
+
+            }
+
+
+            if (score >= 70) {
+
+                return "The assessment indicates good capability with a positive foundation for consulting-oriented responsibilities.";
+
+            }
+
+
+            if (score >= 50) {
+
+                return "The assessment indicates developing capability with opportunities for focused professional development.";
+
+            }
+
+
+            return "The assessment indicates that further development is recommended before taking on advanced consulting responsibilities.";
+
+        }
+
+
+
+        /* =========================================
+           STRENGTHS
+        ========================================= */
+
+        function renderStrengths(findings) {
+
+            const container =
+                document.getElementById(
+                    "strengthsList"
+                );
+
+
+            const strengths =
+                Array.isArray(
+                    findings.strengths
+                )
+                    ? findings.strengths
+                    : [];
+
+
+            if (
+                strengths.length === 0
+            ) {
+
+                container.innerHTML =
+                    `<div class="empty-state">
+                        No strengths available.
+                    </div>`;
+
+                return;
+
+            }
+
+
+            container.innerHTML =
+                strengths
+                    .slice(0, 8)
+                    .map(
+                        item => `
+                            <div class="report-list-item">
+
+                                <span class="list-marker">
+                                    ✓
+                                </span>
+
+                                <span>
+                                    ${escapeHTML(item)}
+                                </span>
+
+                            </div>
+                        `
+                    )
+                    .join("");
+
+        }
+
+
+
+        /* =========================================
+           DEVELOPMENT GAPS
+        ========================================= */
+
+        function renderDevelopmentGaps(findings) {
+
+            const container =
+                document.getElementById(
+                    "gapsList"
+                );
+
+
+            const gaps =
+                Array.isArray(
+                    findings.development_gaps
+                )
+                    ? findings.development_gaps
+                    : [];
+
+
+            if (
+                gaps.length === 0
+            ) {
+
+                container.innerHTML =
+                    `<div class="empty-state">
+                        No development gaps available.
+                    </div>`;
+
+                return;
+
+            }
+
+
+            container.innerHTML =
+                gaps
+                    .slice(0, 8)
+                    .map(
+                        item => `
+                            <div class="report-list-item">
+
+                                <span class="list-marker">
+                                    !
+                                </span>
+
+                                <span>
+                                    ${escapeHTML(item)}
+                                </span>
+
+                            </div>
+                        `
+                    )
+                    .join("");
+
+        }
+
+
+
+        /* =========================================
+           SCORE CHART
+        ========================================= */
+
+        function renderScoreChart(
+            cci,
+            cpi,
+            cri,
+            evidence
+        ) {
+
+            const canvas =
+                document.getElementById(
+                    "scoreChart"
+                );
+
+
+            if (!canvas) {
+
+                return;
+
+            }
+
+
+            if (
+                scoreChartInstance
+            ) {
+
+                scoreChartInstance.destroy();
+
+            }
+
+
+            scoreChartInstance =
+                new Chart(
+                    canvas,
+                    {
+
+                        type: "bar",
+
+                        data: {
+
+                            labels: [
+
+                                "CCI",
+                                "CPI",
+                                "CRI",
+                                "Evidence"
+
+                            ],
+
+                            datasets: [
+
+                                {
+
+                                    label:
+                                        "Score",
+
+                                    data: [
+
+                                        cci,
+                                        cpi,
+                                        cri,
+                                        evidence
+
+                                    ],
+
+                                    borderRadius: 8,
+
+                                    borderSkipped:
+                                        false
+
+                                }
+
+                            ]
+
+                        },
+
+                        options: {
+
+                            responsive: true,
+
+                            maintainAspectRatio:
+                                false,
+
+                            plugins: {
+
+                                legend: {
+
+                                    display: false
+
+                                }
+
+                            },
+
+                            scales: {
+
+                                y: {
+
+                                    beginAtZero:
+                                        true,
+
+                                    max: 100,
+
+                                    ticks: {
+
+                                        stepSize:
+                                            20
+
+                                    }
+
+                                },
+
+                                x: {
+
+                                    grid: {
+
+                                        display:
+                                            false
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+                );
+
+        }
+
+
+
+        /* =========================================
+           COMPETENCY DATA
+        ========================================= */
+
+        function getCompetencyScores() {
+
+            if (
+
+                assessmentData &&
+
+                Array.isArray(
+                    assessmentData.competency_scores
+                )
+
+            ) {
+
+                return assessmentData
+                    .competency_scores
+                    .map(
+                        item => ({
+
+                            category:
+                                item.competency ||
+                                "General",
+
+                            score:
+                                cleanScore(
+                                    item.score
+                                )
+
+                        })
+                    );
+
+            }
+
+
+            if (
+
+                assessmentData &&
+
+                Array.isArray(
+                    assessmentData.responses
+                )
+
+            ) {
+
+                const map = {};
+
+
+                assessmentData
+                    .responses
+                    .forEach(
+                        response => {
+
+                            const category =
+                                response.category ||
+                                "General";
+
+
+                            const score =
+                                cleanScore(
+                                    response.score
+                                );
+
+
+                            if (
+                                !map[category]
+                            ) {
+
+                                map[category] =
+                                    [];
+
+                            }
+
+
+                            map[category]
+                                .push(score);
+
+                        }
+                    );
+
+
+                return Object.keys(map)
+                    .map(
+                        category => {
+
+                            const values =
+                                map[category];
+
+
+                            const average =
+                                values.reduce(
+                                    (
+                                        total,
+                                        value
+                                    ) =>
+                                        total +
+                                        value,
+                                    0
+                                ) /
+                                values.length;
+
+
+                            return {
+
+                                category:
+                                    category,
+
+                                score:
+                                    average
+
+                            };
+
+                        }
+                    );
+
+            }
+
+
+            return [];
+
+        }
+
+
+
+        /* =========================================
+           COMPETENCY CHART
+        ========================================= */
+
+        function renderCompetencyChart() {
+
+            let competencyScores =
+                getCompetencyScores();
+
+
+            if (
+                competencyScores.length === 0
+            ) {
+
+                const scores =
+                    getScores();
+
+
+                competencyScores = [
+
+                    {
+
+                        category:
+                            "Overall Capability",
+
+                        score:
+                            cleanScore(
+                                scores.cci
+                            )
+
+                    }
+
+                ];
+
+            }
+
+
+
+            /* =================================
+               STATISTICS
+            ================================= */
+
+            const strongCount =
+                competencyScores
+                    .filter(
+                        item =>
+                            item.score >= 75
+                    )
+                    .length;
+
+
+            const developmentCount =
+                competencyScores
+                    .filter(
+                        item =>
+                            item.score < 60
+                    )
+                    .length;
+
+
+            document.getElementById(
+                "areasEvaluated"
+            ).textContent =
+                competencyScores.length;
+
+
+            document.getElementById(
+                "strongAreas"
+            ).textContent =
+                strongCount;
+
+
+            document.getElementById(
+                "developmentAreas"
+            ).textContent =
+                developmentCount;
+
+
+
+            const canvas =
+                document.getElementById(
+                    "competencyChart"
+                );
+
+
+            if (!canvas) {
+
+                return;
+
+            }
+
+
+            if (
+                competencyChartInstance
+            ) {
+
+                competencyChartInstance.destroy();
+
+            }
+
+
+            competencyChartInstance =
+                new Chart(
+                    canvas,
+                    {
+
+                        type: "bar",
+
+                        data: {
+
+                            labels:
+                                competencyScores.map(
+                                    item =>
+                                        shortenLabel(
+                                            item.category
+                                        )
+                                ),
+
+                            datasets: [
+
+                                {
+
+                                    label:
+                                        "Capability Score",
+
+                                    data:
+                                        competencyScores.map(
+                                            item =>
+                                                cleanScore(
+                                                    item.score
+                                                )
+                                        ),
+
+                                    borderRadius:
+                                        7,
+
+                                    borderSkipped:
+                                        false
+
+                                }
+
+                            ]
+
+                        },
+
+                        options: {
+
+                            indexAxis: "y",
+
+                            responsive:
+                                true,
+
+                            maintainAspectRatio:
+                                false,
+
+                            plugins: {
+
+                                legend: {
+
+                                    display:
+                                        false
+
+                                }
+
+                            },
+
+                            scales: {
+
+                                x: {
+
+                                    min: 0,
+
+                                    max: 100,
+
+                                    ticks: {
+
+                                        stepSize:
+                                            20
+
+                                    }
+
+                                },
+
+                                y: {
+
+                                    grid: {
+
+                                        display:
+                                            false
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+                );
+
+        }
+
+
+
+        /* =========================================
+           SHORTEN LABEL
+        ========================================= */
+
+        function shortenLabel(label) {
+
+            label =
+                String(label);
+
+
+            if (
+                label.length <= 28
+            ) {
+
+                return label;
+
+            }
+
+
+            return (
+                label.substring(
+                    0,
+                    25
+                ) + "..."
+            );
+
+        }
+
+
+
+        /* =========================================
+           HTML ESCAPE
+        ========================================= */
+
+        function escapeHTML(text) {
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.textContent =
+                String(text);
+
+
+            return div.innerHTML;
+
+        }
+
+
+
+        /* =========================================
+           START
+        ========================================= */
+
+        loadReport();
+
+
+    </script>
+
+
+</body>
+
+</html>

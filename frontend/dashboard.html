@@ -1,0 +1,2938 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>METI | Assessment Dashboard</title>
+
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="dashboard.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         BACKGROUND DECORATION
+    ========================== -->
+
+    <div class="bg-orb orb-one"></div>
+    <div class="bg-orb orb-two"></div>
+    <div class="bg-orb orb-three"></div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <header class="topbar">
+
+        <div class="brand">
+
+            <div class="brand-icon">
+                M
+            </div>
+
+            <div>
+
+                <h2>
+                    METI
+                </h2>
+
+                <span>
+                    Assessment Platform
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="top-actions">
+
+            <a
+                href="result.html"
+                id="viewResultsNav"
+                class="nav-link"
+            >
+                View Results
+            </a>
+
+
+            <button
+                id="retakeBtn"
+                class="retake-btn"
+            >
+                Retake Assessment
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         MAIN DASHBOARD
+    ========================== -->
+
+    <main class="dashboard-container">
+
+
+        <!-- =========================
+             WELCOME SECTION
+        ========================== -->
+
+        <section class="welcome-section">
+
+            <div>
+
+                <p class="eyebrow">
+                    CANDIDATE DASHBOARD
+                </p>
+
+                <h1>
+
+                    Welcome back,
+
+                    <span id="candidateName">
+                        Candidate
+                    </span>
+
+                    👋
+
+                </h1>
+
+                <p class="welcome-text">
+
+                    Review your assessment performance, strengths,
+                    development areas and professional readiness.
+
+                </p>
+
+            </div>
+
+
+            <div class="assessment-status">
+
+                <span class="status-dot"></span>
+
+                <div>
+
+                    <small>
+                        Assessment Status
+                    </small>
+
+                    <strong id="assessmentStatus">
+                        Completed
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             PROFILE MINI CARD
+        ========================== -->
+
+        <section class="profile-card">
+
+            <div
+                class="profile-avatar"
+                id="profileAvatar"
+            >
+                C
+            </div>
+
+
+            <div class="profile-info">
+
+                <h3 id="profileName">
+                    Candidate
+                </h3>
+
+                <p id="profileEmail">
+                    candidate@example.com
+                </p>
+
+            </div>
+
+
+            <div class="profile-meta">
+
+                <div>
+
+                    <span>
+                        Assessment
+                    </span>
+
+                    <strong>
+                        Management Consulting
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Assessment Version
+                    </span>
+
+                    <strong>
+                        1.0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             SCORE CARDS
+        ========================== -->
+
+        <section class="score-grid">
+
+
+            <!-- CCI -->
+
+            <div class="score-card score-purple">
+
+                <div class="score-card-top">
+
+                    <div class="score-icon">
+                        🎯
+                    </div>
+
+                    <span class="score-label">
+                        CCI
+                    </span>
+
+                </div>
+
+
+                <div class="score-value">
+
+                    <span id="cciScore">
+                        --
+                    </span>
+
+                    <small>
+                        /100
+                    </small>
+
+                </div>
+
+
+                <h4>
+                    Current Capability
+                </h4>
+
+                <p>
+                    Demonstrated capability based on assessment evidence.
+                </p>
+
+
+                <div class="mini-progress">
+
+                    <div id="cciProgress"></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CPI -->
+
+            <div class="score-card score-blue">
+
+                <div class="score-card-top">
+
+                    <div class="score-icon">
+                        🚀
+                    </div>
+
+                    <span class="score-label">
+                        CPI
+                    </span>
+
+                </div>
+
+
+                <div class="score-value">
+
+                    <span id="cpiScore">
+                        --
+                    </span>
+
+                    <small>
+                        /100
+                    </small>
+
+                </div>
+
+
+                <h4>
+                    Candidate Potential
+                </h4>
+
+                <p>
+                    Indicates development potential and learning capability.
+                </p>
+
+
+                <div class="mini-progress">
+
+                    <div id="cpiProgress"></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- CRI -->
+
+            <div class="score-card score-green">
+
+                <div class="score-card-top">
+
+                    <div class="score-icon">
+                        💼
+                    </div>
+
+                    <span class="score-label">
+                        CRI
+                    </span>
+
+                </div>
+
+
+                <div class="score-value">
+
+                    <span id="criScore">
+                        --
+                    </span>
+
+                    <small>
+                        /100
+                    </small>
+
+                </div>
+
+
+                <h4>
+                    Client Readiness
+                </h4>
+
+                <p>
+                    Overall readiness for consulting-oriented responsibilities.
+                </p>
+
+
+                <div class="mini-progress">
+
+                    <div id="criProgress"></div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Evidence Confidence -->
+
+            <div class="score-card score-orange">
+
+                <div class="score-card-top">
+
+                    <div class="score-icon">
+                        🔎
+                    </div>
+
+                    <span class="score-label">
+                        EVIDENCE
+                    </span>
+
+                </div>
+
+
+                <div class="score-value">
+
+                    <span id="evidenceScore">
+                        --
+                    </span>
+
+                    <small>
+                        /100
+                    </small>
+
+                </div>
+
+
+                <h4>
+                    Evidence Confidence
+                </h4>
+
+                <p>
+                    Confidence in the evidence supporting your assessment.
+                </p>
+
+
+                <div class="mini-progress">
+
+                    <div id="evidenceProgress"></div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             CHART + SCORE SUMMARY
+        ========================== -->
+
+        <section class="analytics-grid">
+
+
+            <!-- SCORE CHART -->
+
+            <div class="dashboard-card chart-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <p class="card-eyebrow">
+                            PERFORMANCE OVERVIEW
+                        </p>
+
+                        <h2>
+                            Assessment Score Profile
+                        </h2>
+
+                        <p>
+                            Comparison of your four key assessment indicators.
+                        </p>
+
+                    </div>
+
+
+                    <div class="chart-badge">
+                        4 Metrics
+                    </div>
+
+                </div>
+
+
+                <div class="chart-container">
+
+                    <canvas id="scoreChart"></canvas>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- SCORE INTERPRETATION -->
+
+            <div class="dashboard-card interpretation-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <p class="card-eyebrow">
+                            SCORE INTERPRETATION
+                        </p>
+
+                        <h2>
+                            Where You Stand
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="interpretation-item">
+
+                    <div class="interpretation-dot strong-dot"></div>
+
+                    <div>
+
+                        <strong>
+                            85 – 100
+                        </strong>
+
+                        <p>
+                            Strong capability
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="interpretation-item">
+
+                    <div class="interpretation-dot good-dot"></div>
+
+                    <div>
+
+                        <strong>
+                            70 – 84
+                        </strong>
+
+                        <p>
+                            Good / Consulting-ready
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="interpretation-item">
+
+                    <div class="interpretation-dot developing-dot"></div>
+
+                    <div>
+
+                        <strong>
+                            50 – 69
+                        </strong>
+
+                        <p>
+                            Developing capability
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="interpretation-item">
+
+                    <div class="interpretation-dot weak-dot"></div>
+
+                    <div>
+
+                        <strong>
+                            Below 50
+                        </strong>
+
+                        <p>
+                            Development required
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="overall-badge"
+                    id="overallBadge"
+                >
+
+                    <span>
+                        Overall Position
+                    </span>
+
+                    <strong id="overallPosition">
+                        --
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             COMPETENCY PERFORMANCE
+        ========================== -->
+
+        <section class="dashboard-card competency-card">
+
+            <div class="card-heading competency-heading">
+
+                <div>
+
+                    <p class="card-eyebrow">
+                        COMPETENCY PERFORMANCE
+                    </p>
+
+                    <h2>
+                        Capability Across Assessment Areas
+                    </h2>
+
+                    <p>
+                        Your performance across the competencies evaluated
+                        during the assessment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="competency-layout">
+
+
+                <div class="competency-chart-wrapper">
+
+                    <canvas id="competencyChart"></canvas>
+
+                </div>
+
+
+                <div class="competency-summary">
+
+
+                    <div class="summary-stat">
+
+                        <span>
+                            Areas Evaluated
+                        </span>
+
+                        <strong id="areasEvaluated">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-stat">
+
+                        <span>
+                            Strong Areas
+                        </span>
+
+                        <strong id="strongAreas">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="summary-stat">
+
+                        <span>
+                            Development Areas
+                        </span>
+
+                        <strong id="developmentAreas">
+                            0
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             INSIGHTS GRID
+        ========================== -->
+
+        <section class="insights-grid">
+
+
+            <!-- STRENGTHS -->
+
+            <div class="dashboard-card insight-card strengths-card">
+
+                <div class="insight-header">
+
+                    <div class="insight-icon strength-icon">
+                        ⭐
+                    </div>
+
+                    <div>
+
+                        <p class="card-eyebrow">
+                            POSITIVE SIGNALS
+                        </p>
+
+                        <h2>
+                            Your Strengths
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="strengthsList"
+                    class="insight-list"
+                >
+
+                    <div class="empty-insight">
+                        Assessment strengths will appear here.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- DEVELOPMENT GAPS -->
+
+            <div class="dashboard-card insight-card gaps-card">
+
+                <div class="insight-header">
+
+                    <div class="insight-icon gap-icon">
+                        ⚡
+                    </div>
+
+                    <div>
+
+                        <p class="card-eyebrow">
+                            GROWTH OPPORTUNITIES
+                        </p>
+
+                        <h2>
+                            Development Gaps
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="gapsList"
+                    class="insight-list"
+                >
+
+                    <div class="empty-insight">
+                        Development areas will appear here.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             RECOMMENDATION
+        ========================== -->
+
+        <section class="recommendation-card">
+
+            <div class="recommendation-icon">
+                💡
+            </div>
+
+
+            <div class="recommendation-content">
+
+                <p class="card-eyebrow">
+                    ASSESSMENT RECOMMENDATION
+                </p>
+
+                <h2>
+                    Your Professional Development Direction
+                </h2>
+
+                <p id="recommendationText">
+
+                    Your personalized recommendation will appear
+                    after completing the assessment.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             ASSESSMENT HISTORY
+        ========================== -->
+
+        <section class="dashboard-card history-card">
+
+            <div class="history-content">
+
+                <div class="history-icon">
+                    📚
+                </div>
+
+
+                <div class="history-text">
+
+                    <p class="card-eyebrow">
+                        ASSESSMENT HISTORY
+                    </p>
+
+                    <h2>
+                        Previous Completed Assessments
+                    </h2>
+
+                    <p>
+
+                        Review your previous assessment attempts,
+                        scores and assessment results.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="history-action">
+
+                <a
+                    href="assessment-history.html"
+                    class="history-btn"
+                >
+
+                    View Assessment History
+
+                    <span>
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             FOOTER ACTIONS
+        ========================== -->
+
+        <section class="dashboard-actions">
+
+
+            <a
+                href="result.html"
+                id="viewFullResultsBtn"
+                class="primary-action"
+            >
+
+                View Full Assessment Results
+
+                <span>
+                    →
+                </span>
+
+            </a>
+
+
+            <button
+                id="retakeBottomBtn"
+                class="secondary-action"
+            >
+
+                Retake Assessment
+
+            </button>
+
+            <button
+                id="downloadReportBtn"
+                class="primary-action"
+            >
+                <span>📄</span>
+                Download Report
+            </button>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         DASHBOARD JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+
+        /* ==========================================
+           SUPABASE CONFIGURATION
+        ========================================== */
+
+        const SUPABASE_URL =
+            "https://pjfwlddbfkaqwxghwvjw.supabase.co";
+
+
+        const SUPABASE_PUBLISHABLE_KEY =
+            "sb_publishable_cMBcYcIajOfPSQYKHL61rg_i1cdHTUr";
+
+
+        const supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
+
+
+
+        /* ==========================================
+           GET URL PARAMETERS
+        ========================================== */
+
+        const urlParams =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const selectedAttemptId =
+            urlParams.get(
+                "attempt_id"
+            );
+
+
+        /*
+         * IMPORTANT:
+         * Historical result page now sends
+         * user_id along with attempt_id.
+         */
+
+        const selectedUserId =
+            urlParams.get(
+                "user_id"
+            );
+
+
+
+        /* ==========================================
+           GLOBAL DATA
+        ========================================== */
+
+        let assessmentData = null;
+
+        let profileData = null;
+
+        let scoreChartInstance = null;
+
+        let competencyChartInstance = null;
+
+
+
+        /* ==========================================
+           DEFAULT DATA
+        ========================================== */
+
+        const defaultScores = {
+
+            cci: 0,
+
+            cpi: 0,
+
+            cri: 0,
+
+            evidence_confidence: 0
+
+        };
+
+
+        const defaultFindings = {
+
+            strengths: [],
+
+            development_gaps: [],
+
+            recommendation:
+                "Complete the assessment to receive your personalized recommendation."
+
+        };
+
+
+
+        /* ==========================================
+           LOAD DASHBOARD DATA
+        ========================================== */
+
+        async function loadDashboard() {
+
+            try {
+
+
+                /* ======================================
+                   CASE 1:
+                   HISTORICAL ATTEMPT SELECTED
+                ====================================== */
+
+                if (selectedAttemptId) {
+
+                    console.log(
+                        "Loading selected historical attempt:",
+                        selectedAttemptId
+                    );
+
+
+                    /*
+                     * First preference:
+                     * user_id passed from result.html
+                     */
+
+                    let userId =
+                        selectedUserId;
+
+
+                    /*
+                     * Fallback:
+                     * If user_id is not present in URL,
+                     * try Supabase session.
+                     *
+                     * This keeps normal compatibility.
+                     */
+
+                    if (!userId) {
+
+                        console.log(
+                            "Historical user_id not found in URL. Trying Supabase session..."
+                        );
+
+
+                        const {
+                            data: { user },
+                            error: userError
+                        } =
+                            await supabaseClient
+                                .auth
+                                .getUser();
+
+
+                        if (
+                            userError ||
+                            !user
+                        ) {
+
+                            throw new Error(
+                                "Unable to identify the candidate for this assessment."
+                            );
+
+                        }
+
+
+                        userId =
+                            user.id;
+
+                    }
+
+
+                    console.log(
+                        "Using user ID for historical assessment:",
+                        userId
+                    );
+
+
+                    /*
+                     * Load exact historical attempt
+                     */
+
+                    const response =
+                        await fetch(
+
+                            `http://127.0.0.1:8000/assessment-result/${encodeURIComponent(
+                                selectedAttemptId
+                            )}?user_id=${encodeURIComponent(
+                                userId
+                            )}`
+
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+
+                            data.detail ||
+
+                            "Unable to load selected assessment."
+
+                        );
+
+                    }
+
+
+                    if (
+                        !data.success ||
+                        !data.scores
+                    ) {
+
+                        throw new Error(
+                            "Invalid assessment result returned by the server."
+                        );
+
+                    }
+
+
+                    /*
+                     * Store selected assessment
+                     */
+
+                    assessmentData =
+                        data;
+
+
+                    console.log(
+                        "Selected historical assessment loaded:",
+                        assessmentData
+                    );
+
+
+                    /*
+                     * Keep selected attempt
+                     * when navigating to result page.
+                     */
+
+                    updateAttemptLinks();
+
+
+                }
+
+
+                /* ======================================
+                   CASE 2:
+                   NORMAL DASHBOARD
+                ====================================== */
+
+                else {
+
+                    const storedResult =
+                        localStorage.getItem(
+                            "metiAssessmentResult"
+                        );
+
+
+                    if (storedResult) {
+
+                        try {
+
+                            assessmentData =
+                                JSON.parse(
+                                    storedResult
+                                );
+
+                        } catch (error) {
+
+                            console.error(
+                                "Unable to read assessment result:",
+                                error
+                            );
+
+                            assessmentData =
+                                null;
+
+                        }
+
+                    }
+
+
+                    /*
+                     * Normal latest result
+                     */
+
+                    updateAttemptLinks();
+
+                }
+
+
+
+                /* ======================================
+                   LOAD PROFILE
+                ====================================== */
+
+                await loadProfileData();
+
+
+                /* ======================================
+                   RENDER DASHBOARD
+                ====================================== */
+
+                renderDashboard();
+
+
+
+            } catch (error) {
+
+                console.error(
+                    "Dashboard loading error:",
+                    error
+                );
+
+
+                const statusElement =
+                    document.getElementById(
+                        "assessmentStatus"
+                    );
+
+
+                if (statusElement) {
+
+                    statusElement.textContent =
+                        "Unable to Load";
+
+                }
+
+
+                alert(
+                    error.message ||
+                    "Unable to load assessment dashboard."
+                );
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           UPDATE RESULT LINKS
+        ========================================== */
+
+        function updateAttemptLinks() {
+
+
+            const viewResultsNav =
+                document.getElementById(
+                    "viewResultsNav"
+                );
+
+
+            const viewFullResultsBtn =
+                document.getElementById(
+                    "viewFullResultsBtn"
+                );
+
+
+            if (selectedAttemptId) {
+
+
+                /*
+                 * Preserve both attempt_id
+                 * and user_id when possible.
+                 */
+
+                let resultURL =
+                    `result.html?attempt_id=${encodeURIComponent(
+                        selectedAttemptId
+                    )}`;
+
+
+                if (selectedUserId) {
+
+                    resultURL +=
+                        `&user_id=${encodeURIComponent(
+                            selectedUserId
+                        )}`;
+
+                }
+
+
+                if (viewResultsNav) {
+
+                    viewResultsNav.href =
+                        resultURL;
+
+                }
+
+
+                if (viewFullResultsBtn) {
+
+                    viewFullResultsBtn.href =
+                        resultURL;
+
+                }
+
+            }
+
+
+        }
+
+
+
+        /* ==========================================
+        LOAD PROFILE DATA
+        ========================================== */
+
+        async function loadProfileData() {
+
+            try {
+
+                /*
+                * Get currently logged-in user
+                */
+
+                const {
+                    data: { user },
+                    error: userError
+                } =
+                    await supabaseClient.auth.getUser();
+
+
+                if (userError || !user) {
+
+                    console.error(
+                        "Unable to get logged-in user:",
+                        userError
+                    );
+
+                    profileData = null;
+
+                    return;
+
+                }
+
+
+                console.log(
+                    "Logged-in user for dashboard:",
+                    user
+                );
+
+
+                /*
+                * Get registered profile
+                * from Supabase profiles table
+                */
+
+                const {
+                    data: profile,
+                    error: profileError
+                } =
+                    await supabaseClient
+                        .from("profiles")
+                        .select("full_name, email")
+                        .eq("user_id",
+                         selectedUserId || user.id
+                        )
+                        .maybeSingle();
+
+
+                if (profileError) {
+
+                    console.error(
+                        "Profile fetch error:",
+                        profileError
+                    );
+
+                    profileData = null;
+
+                    return;
+
+                }
+
+
+                /*
+                * Store Supabase profile
+                */
+
+                profileData =
+                    profile || {
+
+                        full_name:
+                            user.user_metadata?.full_name ||
+                            "Candidate",
+
+                        email:
+                            user.email ||
+                            "candidate@example.com"
+
+                    };
+
+
+                console.log(
+                    "Dashboard profile loaded:",
+                    profileData
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Profile loading error:",
+                    error
+                );
+
+                profileData = null;
+
+            }
+
+        }
+
+
+        /* ==========================================
+           GET SCORES
+        ========================================== */
+
+        function getScores() {
+
+
+            if (
+                assessmentData &&
+                assessmentData.scores
+            ) {
+
+                return assessmentData.scores;
+
+            }
+
+
+            return defaultScores;
+
+        }
+
+
+
+        /* ==========================================
+           GET FINDINGS
+        ========================================== */
+
+        function getFindings() {
+
+
+            if (
+                assessmentData &&
+                assessmentData.findings
+            ) {
+
+                return assessmentData.findings;
+
+            }
+
+
+            return defaultFindings;
+
+        }
+
+
+
+        /* ==========================================
+           HELPER: CLEAN SCORE
+        ========================================== */
+
+        function cleanScore(value) {
+
+
+            const number =
+                Number(value);
+
+
+            if (
+                Number.isNaN(number) ||
+                !Number.isFinite(number)
+            ) {
+
+                return 0;
+
+            }
+
+
+            return Math.max(
+                0,
+                Math.min(
+                    100,
+                    number
+                )
+            );
+
+        }
+
+
+
+        /* ==========================================
+           SCORE LEVEL
+        ========================================== */
+
+        function getScoreLevel(score) {
+
+
+            score =
+                cleanScore(
+                    score
+                );
+
+
+            if (score >= 85) {
+
+                return "Strong";
+
+            }
+
+
+            if (score >= 70) {
+
+                return "Good";
+
+            }
+
+
+            if (score >= 50) {
+
+                return "Developing";
+
+            }
+
+
+            return "Development Required";
+
+        }
+
+
+
+        /* ==========================================
+           RENDER DASHBOARD
+        ========================================== */
+
+        function renderDashboard() {
+
+
+            const scores =
+                getScores();
+
+
+            const findings =
+                getFindings();
+
+
+
+            /* ======================================
+               PROFILE
+            ====================================== */
+
+            const candidateName =
+                profileData?.full_name ||
+                profileData?.name ||
+                localStorage.getItem(
+                    "candidateName"
+                ) ||
+                "Candidate";
+
+
+            const candidateEmail =
+                profileData?.email ||
+                localStorage.getItem(
+                    "candidateEmail"
+                ) ||
+                "Candidate@example.com";
+
+
+
+            document.getElementById(
+                "candidateName"
+            ).textContent =
+                candidateName;
+
+
+            document.getElementById(
+                "profileName"
+            ).textContent =
+                candidateName;
+
+
+            document.getElementById(
+                "profileEmail"
+            ).textContent =
+                candidateEmail;
+
+
+
+            const avatar =
+                candidateName
+                    .trim()
+                    .charAt(0)
+                    .toUpperCase();
+
+
+            document.getElementById(
+                "profileAvatar"
+            ).textContent =
+                avatar || "C";
+
+
+
+            /* ======================================
+               SCORES
+            ====================================== */
+
+            const cci =
+                cleanScore(
+                    scores.cci
+                );
+
+
+            const cpi =
+                cleanScore(
+                    scores.cpi
+                );
+
+
+            const cri =
+                cleanScore(
+                    scores.cri
+                );
+
+
+            const evidence =
+                cleanScore(
+                    scores.evidence_confidence
+                );
+
+
+
+            document.getElementById(
+                "cciScore"
+            ).textContent =
+                cci.toFixed(2);
+
+
+            document.getElementById(
+                "cpiScore"
+            ).textContent =
+                cpi.toFixed(2);
+
+
+            document.getElementById(
+                "criScore"
+            ).textContent =
+                cri.toFixed(2);
+
+
+            document.getElementById(
+                "evidenceScore"
+            ).textContent =
+                evidence.toFixed(2);
+
+
+
+            /* ======================================
+               PROGRESS BARS
+            ====================================== */
+
+            document.getElementById(
+                "cciProgress"
+            ).style.width =
+                `${cci}%`;
+
+
+            document.getElementById(
+                "cpiProgress"
+            ).style.width =
+                `${cpi}%`;
+
+
+            document.getElementById(
+                "criProgress"
+            ).style.width =
+                `${cri}%`;
+
+
+            document.getElementById(
+                "evidenceProgress"
+            ).style.width =
+                `${evidence}%`;
+
+
+
+            /* ======================================
+               OVERALL POSITION
+            ====================================== */
+
+            const overall =
+                (
+                    cci +
+                    cpi +
+                    cri +
+                    evidence
+                ) / 4;
+
+
+            document.getElementById(
+                "overallPosition"
+            ).textContent =
+                getScoreLevel(
+                    overall
+                );
+
+
+
+            /* ======================================
+               STRENGTHS
+            ====================================== */
+
+            renderStrengths(
+                findings
+            );
+
+
+
+            /* ======================================
+               DEVELOPMENT GAPS
+            ====================================== */
+
+            renderDevelopmentGaps(
+                findings
+            );
+
+
+
+            /* ======================================
+               RECOMMENDATION
+            ====================================== */
+
+            document.getElementById(
+                "recommendationText"
+            ).textContent =
+                findings.recommendation ||
+                "Complete the assessment to receive your personalized recommendation.";
+
+
+
+            /* ======================================
+               SCORE CHART
+            ====================================== */
+
+            renderScoreChart(
+                cci,
+                cpi,
+                cri,
+                evidence
+            );
+
+
+
+            /* ======================================
+               COMPETENCY CHART
+            ====================================== */
+
+            renderCompetencyChart();
+
+
+
+            /* ======================================
+               STATUS
+            ====================================== */
+
+            if (
+                !assessmentData
+            ) {
+
+                document.getElementById(
+                    "assessmentStatus"
+                ).textContent =
+                    "Not Completed";
+
+
+                const statusDot =
+                    document.querySelector(
+                        ".status-dot"
+                    );
+
+
+                if (statusDot) {
+
+                    statusDot.classList.add(
+                        "status-warning"
+                    );
+
+                }
+
+            } else {
+
+                document.getElementById(
+                    "assessmentStatus"
+                ).textContent =
+                    "Completed";
+
+            }
+
+
+        }
+
+
+
+        /* ==========================================
+           RENDER STRENGTHS
+        ========================================== */
+
+        function renderStrengths(
+            findings
+        ) {
+
+
+            const strengthsList =
+                document.getElementById(
+                    "strengthsList"
+                );
+
+
+            const strengths =
+                Array.isArray(
+                    findings.strengths
+                )
+                    ? findings.strengths
+                    : [];
+
+
+            if (
+                strengths.length > 0
+            ) {
+
+
+                strengthsList.innerHTML =
+
+                    strengths
+                        .slice(
+                            0,
+                            5
+                        )
+                        .map(
+
+                            (item) => `
+
+                                <div class="insight-item">
+
+                                    <span class="check-icon">
+                                        ✓
+                                    </span>
+
+                                    <span>
+                                        ${escapeHTML(item)}
+                                    </span>
+
+                                </div>
+
+                            `
+
+                        )
+                        .join("");
+
+
+            } else {
+
+
+                strengthsList.innerHTML = `
+
+                    <div class="empty-insight">
+
+                        Complete the assessment
+                        to identify your strengths.
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           RENDER DEVELOPMENT GAPS
+        ========================================== */
+
+        function renderDevelopmentGaps(
+            findings
+        ) {
+
+
+            const gapsList =
+                document.getElementById(
+                    "gapsList"
+                );
+
+
+            const gaps =
+                Array.isArray(
+                    findings.development_gaps
+                )
+                    ? findings.development_gaps
+                    : [];
+
+
+            if (
+                gaps.length > 0
+            ) {
+
+
+                gapsList.innerHTML =
+
+                    gaps
+                        .slice(
+                            0,
+                            5
+                        )
+                        .map(
+
+                            (item) => `
+
+                                <div class="insight-item">
+
+                                    <span class="warning-icon">
+                                        !
+                                    </span>
+
+                                    <span>
+                                        ${escapeHTML(item)}
+                                    </span>
+
+                                </div>
+
+                            `
+
+                        )
+                        .join("");
+
+
+            } else {
+
+
+                gapsList.innerHTML = `
+
+                    <div class="empty-insight">
+
+                        Complete the assessment
+                        to identify development areas.
+
+                    </div>
+
+                `;
+
+            }
+
+        }
+
+
+
+        /* ==========================================
+           SCORE CHART
+        ========================================== */
+
+        function renderScoreChart(
+            cci,
+            cpi,
+            cri,
+            evidence
+        ) {
+
+
+            const scoreCanvas =
+                document.getElementById(
+                    "scoreChart"
+                );
+
+
+            if (!scoreCanvas) {
+
+                return;
+
+            }
+
+
+            /*
+             * Destroy previous chart
+             */
+
+            if (
+                scoreChartInstance
+            ) {
+
+                scoreChartInstance.destroy();
+
+            }
+
+
+            scoreChartInstance =
+                new Chart(
+
+                    scoreCanvas,
+
+                    {
+
+                        type: "bar",
+
+
+                        data: {
+
+                            labels: [
+
+                                "CCI",
+                                "CPI",
+                                "CRI",
+                                "Evidence"
+
+                            ],
+
+
+                            datasets: [
+
+                                {
+
+                                    label:
+                                        "Score",
+
+                                    data: [
+
+                                        cci,
+                                        cpi,
+                                        cri,
+                                        evidence
+
+                                    ],
+
+                                    borderRadius: 12,
+
+                                    borderSkipped: false
+
+                                }
+
+                            ]
+
+                        },
+
+
+                        options: {
+
+                            responsive: true,
+
+                            maintainAspectRatio: false,
+
+
+                            plugins: {
+
+                                legend: {
+
+                                    display: false
+
+                                }
+
+                            },
+
+
+                            scales: {
+
+                                y: {
+
+                                    beginAtZero: true,
+
+                                    max: 100,
+
+                                    ticks: {
+
+                                        stepSize: 20
+
+                                    }
+
+                                },
+
+
+                                x: {
+
+                                    grid: {
+
+                                        display: false
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                );
+
+        }
+
+
+
+        /* ==========================================
+           GET COMPETENCY DATA
+        ========================================== */
+
+        function getCompetencyScores() {
+
+
+            /*
+             * Historical API response
+             */
+
+            if (
+
+                assessmentData &&
+
+                Array.isArray(
+                    assessmentData.competency_scores
+                )
+
+            ) {
+
+
+                return assessmentData
+                    .competency_scores
+                    .map(
+
+                        (item) => ({
+
+                            category:
+                                item.competency ||
+                                "General",
+
+                            score:
+                                cleanScore(
+                                    item.score
+                                )
+
+                        })
+
+                    );
+
+            }
+
+
+
+            /*
+             * LocalStorage result
+             * may contain responses.
+             */
+
+            if (
+
+                assessmentData &&
+
+                Array.isArray(
+                    assessmentData.responses
+                )
+
+            ) {
+
+
+                const competencyMap =
+                    {};
+
+
+                assessmentData
+                    .responses
+                    .forEach(
+
+                        (response) => {
+
+
+                            const category =
+                                response.category ||
+                                "General";
+
+
+                            const score =
+                                cleanScore(
+                                    response.score
+                                );
+
+
+                            if (
+                                !competencyMap[
+                                    category
+                                ]
+                            ) {
+
+                                competencyMap[
+                                    category
+                                ] = [];
+
+                            }
+
+
+                            competencyMap[
+                                category
+                            ].push(
+                                score
+                            );
+
+                        }
+
+                    );
+
+
+
+                return Object.keys(
+                    competencyMap
+                )
+                .map(
+
+                    (category) => {
+
+
+                        const values =
+                            competencyMap[
+                                category
+                            ];
+
+
+                        const average =
+                            values.reduce(
+
+                                (
+                                    total,
+                                    value
+                                ) =>
+
+                                    total +
+                                    value,
+
+                                0
+
+                            ) /
+                            values.length;
+
+
+                        return {
+
+                            category:
+                                category,
+
+                            score:
+                                average
+
+                        };
+
+                    }
+
+                );
+
+            }
+
+
+
+            return [];
+
+        }
+
+
+
+        /* ==========================================
+           COMPETENCY CHART
+        ========================================== */
+
+        function renderCompetencyChart() {
+
+
+            let competencyScores =
+                getCompetencyScores();
+
+
+
+            /*
+             * Fallback
+             */
+
+            if (
+                competencyScores.length === 0
+            ) {
+
+                const scores =
+                    getScores();
+
+
+                competencyScores = [
+
+                    {
+
+                        category:
+                            "Overall Capability",
+
+                        score:
+                            cleanScore(
+                                scores.cci
+                            )
+
+                    }
+
+                ];
+
+            }
+
+
+
+            /* ======================================
+               STATISTICS
+            ====================================== */
+
+            const strongCount =
+                competencyScores
+                    .filter(
+
+                        item =>
+                            item.score >= 75
+
+                    )
+                    .length;
+
+
+            const developmentCount =
+                competencyScores
+                    .filter(
+
+                        item =>
+                            item.score < 60
+
+                    )
+                    .length;
+
+
+
+            document.getElementById(
+                "areasEvaluated"
+            ).textContent =
+                competencyScores.length;
+
+
+            document.getElementById(
+                "strongAreas"
+            ).textContent =
+                strongCount;
+
+
+            document.getElementById(
+                "developmentAreas"
+            ).textContent =
+                developmentCount;
+
+
+
+            /* ======================================
+               CHART
+            ====================================== */
+
+            const competencyCanvas =
+                document.getElementById(
+                    "competencyChart"
+                );
+
+
+            if (
+                !competencyCanvas
+            ) {
+
+                return;
+
+            }
+
+
+            /*
+             * Destroy previous chart
+             */
+
+            if (
+                competencyChartInstance
+            ) {
+
+                competencyChartInstance.destroy();
+
+            }
+
+
+
+            competencyChartInstance =
+                new Chart(
+
+                    competencyCanvas,
+
+                    {
+
+                        type: "bar",
+
+
+                        data: {
+
+                            labels:
+
+                                competencyScores.map(
+
+                                    item =>
+
+                                        shortenLabel(
+                                            item.category
+                                        )
+
+                                ),
+
+
+                            datasets: [
+
+                                {
+
+                                    label:
+                                        "Capability Score",
+
+                                    data:
+
+                                        competencyScores.map(
+
+                                            item =>
+
+                                                cleanScore(
+                                                    item.score
+                                                )
+
+                                        ),
+
+                                    borderRadius: 8,
+
+                                    borderSkipped: false
+
+                                }
+
+                            ]
+
+                        },
+
+
+                        options: {
+
+                            indexAxis: "y",
+
+                            responsive: true,
+
+                            maintainAspectRatio: false,
+
+
+                            plugins: {
+
+                                legend: {
+
+                                    display: false
+
+                                }
+
+                            },
+
+
+                            scales: {
+
+                                x: {
+
+                                    min: 0,
+
+                                    max: 100,
+
+                                    ticks: {
+
+                                        stepSize: 20
+
+                                    }
+
+                                },
+
+
+                                y: {
+
+                                    grid: {
+
+                                        display: false
+
+                                    }
+
+                                }
+
+                            }
+
+                        }
+
+                    }
+
+                );
+
+        }
+
+
+
+        /* ==========================================
+           SHORTEN LABEL
+        ========================================== */
+
+        function shortenLabel(
+            label
+        ) {
+
+
+            label =
+                String(
+                    label
+                );
+
+
+            if (
+                label.length <= 28
+            ) {
+
+                return label;
+
+            }
+
+
+            return (
+
+                label.substring(
+                    0,
+                    25
+                ) +
+
+                "..."
+
+            );
+
+        }
+
+
+
+        /* ==========================================
+           HTML ESCAPE
+        ========================================== */
+
+        function escapeHTML(
+            text
+        ) {
+
+
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+
+            div.textContent =
+                String(
+                    text
+                );
+
+
+            return div.innerHTML;
+
+        }
+
+
+
+        /* ==========================================
+           RETAKE ASSESSMENT
+        ========================================== */
+
+        function retakeAssessment() {
+
+
+            /*
+             * Only clear local latest result.
+             *
+             * Database historical attempts
+             * remain safely stored.
+             */
+
+            localStorage.removeItem(
+                "metiAssessmentResult"
+            );
+
+
+            localStorage.removeItem(
+                "metiAssessmentAnswers"
+            );
+
+
+            window.location.href =
+                "assessment.html";
+
+        }
+
+
+
+        /* ==========================================
+           RETAKE BUTTONS
+        ========================================== */
+
+        document.getElementById(
+            "retakeBtn"
+        )
+        .addEventListener(
+            "click",
+            retakeAssessment
+        );
+
+
+        document.getElementById(
+            "retakeBottomBtn"
+        )
+        .addEventListener(
+            "click",
+            retakeAssessment
+        );
+
+        // =========================================================
+        // DOWNLOAD REPORT BUTTON
+        // =========================================================
+
+        const downloadReportBtn =
+            document.getElementById("downloadReportBtn");
+
+        console.log(
+            "Download Report button found:",
+            downloadReportBtn
+        );
+
+        if (downloadReportBtn) {
+
+            downloadReportBtn.addEventListener(
+                "click",
+                async function () {
+
+                    try {
+
+                        console.log(
+                            "DOWNLOAD REPORT BUTTON CLICKED"
+                        );
+
+
+                        // -------------------------------------------------
+                        // GET LOGGED-IN USER
+                        // -------------------------------------------------
+
+                        const {
+                            data: { user },
+                            error: userError
+                        } =
+                            await supabaseClient.auth.getUser();
+
+
+                        if (userError || !user) {
+
+                            throw new Error(
+                                "Please login again to download your report."
+                            );
+
+                        }
+
+
+                        console.log(
+                            "Logged-in User:",
+                            user
+                        );
+
+
+                        // -------------------------------------------------
+                        // GET CANDIDATE PROFILE FROM SUPABASE
+                        // -------------------------------------------------
+
+                        const {
+                            data: profile,
+                            error: profileError
+                        } =
+                            await supabaseClient
+                                .from("profiles")
+                                .select("full_name, email")
+                                .eq("user_id", user.id)
+                                .maybeSingle();
+
+
+                        if (profileError) {
+
+                            console.error(
+                                "Profile fetch error:",
+                                profileError
+                            );
+
+                            throw new Error(
+                                "Unable to load your registered profile."
+                            );
+
+                        }
+
+
+                        if (!profile) {
+
+                            throw new Error(
+                                "Candidate profile not found."
+                            );
+
+                        }
+
+
+                        // -------------------------------------------------
+                        // REGISTERED CANDIDATE DETAILS
+                        // -------------------------------------------------
+
+                        const candidateName =
+                            profile.full_name ||
+                            user.user_metadata?.full_name ||
+                            "Candidate";
+
+
+                        const candidateEmail =
+                            profile.email ||
+                            user.email ||
+                            "candidate@example.com";
+
+
+                        console.log(
+                            "Candidate Name:",
+                            candidateName
+                        );
+
+                        console.log(
+                            "Candidate Email:",
+                            candidateEmail
+                        );
+
+
+                        // -------------------------------------------------
+                        // GET ATTEMPT ID FROM URL
+                        // -------------------------------------------------
+
+                        const urlParams =
+                            new URLSearchParams(
+                                window.location.search
+                            );
+
+
+                        const attemptId =
+                            urlParams.get("attempt_id");
+
+
+                        if (!attemptId) {
+
+                            throw new Error(
+                                "Assessment attempt not found."
+                            );
+
+                        }
+
+
+                        console.log(
+                            "Attempt ID:",
+                            attemptId
+                        );
+
+                        console.log(
+                            "User ID:",
+                            user.id
+                        );
+
+
+                        // -------------------------------------------------
+                        // CHANGE BUTTON STATE
+                        // -------------------------------------------------
+
+                        downloadReportBtn.disabled =
+                            true;
+
+
+                        downloadReportBtn.innerHTML =
+                            "⏳ Generating Report...";
+
+
+                        // -------------------------------------------------
+                        // CALL FASTAPI
+                        // -------------------------------------------------
+
+                        const response =
+                            await fetch(
+                                "http://127.0.0.1:8000/download-report" +
+                                `?attempt_id=${encodeURIComponent(
+                                    attemptId
+                                )}` +
+                                `&user_id=${encodeURIComponent(
+                                    user.id
+                                )}` +
+                                `&candidate_name=${encodeURIComponent(
+                                    candidateName
+                                )}` +
+                                `&candidate_email=${encodeURIComponent(
+                                    candidateEmail
+                                )}`
+                            );
+
+
+                        // -------------------------------------------------
+                        // CHECK RESPONSE
+                        // -------------------------------------------------
+
+                        if (!response.ok) {
+
+                            let errorMessage =
+                                "Unable to generate report.";
+
+                            try {
+
+                                const errorData =
+                                    await response.json();
+
+                                errorMessage =
+                                    errorData.detail ||
+                                    errorMessage;
+
+                            } catch (e) {}
+
+                            throw new Error(
+                                errorMessage
+                            );
+
+                        }
+
+
+                        // -------------------------------------------------
+                        // GET PDF FILE
+                        // -------------------------------------------------
+
+                        const blob =
+                            await response.blob();
+
+
+                        // -------------------------------------------------
+                        // CREATE DOWNLOAD URL
+                        // -------------------------------------------------
+
+                        const pdfUrl =
+                            window.URL.createObjectURL(
+                                blob
+                            );
+
+
+                        // -------------------------------------------------
+                        // CREATE DOWNLOAD LINK
+                        // -------------------------------------------------
+
+                        const link =
+                            document.createElement("a");
+
+
+                        link.href =
+                            pdfUrl;
+
+
+                        link.download =
+                            "METI_Assessment_Report.pdf";
+
+
+                        document.body.appendChild(
+                            link
+                        );
+
+
+                        link.click();
+
+
+                        link.remove();
+
+
+                        // -------------------------------------------------
+                        // CLEANUP
+                        // -------------------------------------------------
+
+                        window.URL.revokeObjectURL(
+                            pdfUrl
+                        );
+
+
+                        // -------------------------------------------------
+                        // RESTORE BUTTON
+                        // -------------------------------------------------
+
+                        downloadReportBtn.innerHTML =
+                            "📄 Download Report";
+
+
+                        console.log(
+                            "PDF report downloaded successfully."
+                        );
+
+
+                    } catch (error) {
+
+                        console.error(
+                            "Download report error:",
+                            error
+                        );
+
+
+                        alert(
+                            error.message ||
+                            "Unable to download report."
+                        );
+
+
+                        downloadReportBtn.innerHTML =
+                            "📄 Download Report";
+
+
+                    } finally {
+
+                        downloadReportBtn.disabled =
+                            false;
+
+                    }
+
+                }
+            );
+
+        }
+
+
+
+ 
+        /* ==========================================
+           LOAD DASHBOARD
+        ========================================== */
+
+        loadDashboard();
+
+
+    </script>
+
+
+</body>
+
+</html>

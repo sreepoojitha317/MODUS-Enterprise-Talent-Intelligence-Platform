@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Candidate Profile | METI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-page profile-page">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <a href="index.html" class="auth-logo">
+            METI
+        </a>
+
+        <div class="nav-links">
+            <span class="auth-question">
+                Candidate Profile
+            </span>
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+    <main class="profile-container">
+
+        <div class="profile-wrapper">
+
+
+            <!-- LEFT INTRO -->
+            <section class="profile-intro">
+
+                <p class="eyebrow">
+                    CANDIDATE PROFILE
+                </p>
+
+                <h1>
+                    Tell us about<br>
+                    <span>your journey.</span>
+                </h1>
+
+                <p class="profile-description">
+
+                    Build your professional profile so METI can
+                    understand your education, experience and
+                    professional evidence before starting your
+                    assessment.
+
+                </p>
+
+
+                <!-- STEPS -->
+                <div class="profile-steps">
+
+                    <div class="profile-step active">
+
+                        <div class="step-number">
+                            01
+                        </div>
+
+                        <div>
+                            <strong>
+                                Candidate Information
+                            </strong>
+
+                            <p>
+                                Basic professional details
+                                and contact information.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-step">
+
+                        <div class="step-number">
+                            02
+                        </div>
+
+                        <div>
+                            <strong>
+                                Education & Experience
+                            </strong>
+
+                            <p>
+                                Tell us about your academic
+                                and professional background.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-step">
+
+                        <div class="step-number">
+                            03
+                        </div>
+
+                        <div>
+                            <strong>
+                                Professional Evidence
+                            </strong>
+
+                            <p>
+                                Add LinkedIn, GitHub and your
+                                CV to support the assessment.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            
+
+            </section>
+
+
+
+            <!-- PROFILE CARD -->
+            <section class="profile-card">
+
+                <div class="profile-card-header">
+
+                    <div class="profile-icon">
+                        ✦
+                    </div>
+
+                    <div>
+                        <h2>
+                            Your Profile
+                        </h2>
+
+                        <p>
+                            Add your professional information
+                            to continue.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <form id="profileForm">
+
+
+                    <!-- BASIC INFORMATION -->
+                    <div class="form-section">
+
+                        <div class="section-label">
+                            BASIC INFORMATION
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="profileFullName">
+                                    Full Name
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="profileFullName"
+                                    placeholder="Enter your full name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="profileEmail">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="profileEmail"
+                                    placeholder="Enter your email"
+                                    readonly
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- EDUCATION -->
+                    <div class="form-section">
+
+                        <div class="section-label">
+                            EDUCATION & EXPERIENCE
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="education">
+                                Education
+                            </label>
+
+                            <input
+                                type="text"
+                                id="education"
+                                placeholder="e.g. BCA Data Science, Vivekananda Degree College"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="experience">
+                                Experience
+                            </label>
+
+                            <textarea
+                                id="experience"
+                                rows="4"
+                                placeholder="Describe your internship, work experience or relevant projects..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- PROFESSIONAL LINKS -->
+                    <div class="form-section">
+
+                        <div class="section-label">
+                            PROFESSIONAL EVIDENCE
+                        </div>
+
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="linkedin">
+                                    LinkedIn Profile
+                                </label>
+
+                                <input
+                                    type="url"
+                                    id="linkedin"
+                                    placeholder="https://linkedin.com/in/your-profile"
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="github">
+                                    GitHub / Portfolio
+                                </label>
+
+                                <input
+                                    type="url"
+                                    id="github"
+                                    placeholder="https://github.com/your-profile"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- RESUME -->
+                    <div class="form-section">
+
+                        <div class="section-label">
+                            RESUME / CV
+                        </div>
+
+
+                        <label
+                            for="resume"
+                            class="resume-upload"
+                        >
+
+                            <div class="upload-icon">
+                                ↑
+                            </div>
+
+                            <div>
+
+                                <strong>
+                                    Upload your CV
+                                </strong>
+
+                                <p>
+                                    PDF format recommended ·
+                                    Max 5 MB
+                                </p>
+
+                            </div>
+
+                            <span class="upload-button">
+                                Choose File
+                            </span>
+
+                        </label>
+
+                        <input
+                            type="file"
+                            id="resume"
+                            accept=".pdf"
+                            hidden
+                            required
+                        >
+
+
+                        <div
+                            id="resumeName"
+                            class="resume-name"
+                        ></div>
+
+                    </div>
+
+
+
+                    <!-- MESSAGE -->
+                    <div
+                        id="profileError"
+                        class="form-message error-message"
+                    ></div>
+
+                    <div
+                        id="profileSuccess"
+                        class="form-message success-message"
+                    ></div>
+
+
+
+                    <!-- SUBMIT -->
+                    <button
+                        type="submit"
+                        class="auth-submit profile-submit"
+                    >
+                        Save Profile & Continue →
+                    </button>
+
+                </form>
+
+
+                <p class="auth-footer">
+                    Your information will be used to personalise
+                    your assessment experience.
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>

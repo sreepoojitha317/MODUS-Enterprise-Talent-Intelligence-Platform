@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Consent | METI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="auth-page">
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="auth-logo">
+            METI
+        </a>
+
+        <div class="nav-links">
+
+            <span class="auth-question">
+                Assessment Setup
+            </span>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         CONSENT SECTION
+    ========================== -->
+
+    <main class="auth-container">
+
+        <div class="auth-wrapper">
+
+
+            <!-- =========================
+                 LEFT INFORMATION
+            ========================== -->
+
+            <section class="auth-intro">
+
+                <p class="eyebrow">
+                    BEFORE YOU BEGIN
+                </p>
+
+
+                <h1>
+                    Your data,
+                    <br>
+                    <span>your control.</span>
+                </h1>
+
+
+                <p class="auth-description">
+
+                    Before continuing, please review how
+                    your information will be used during
+                    your METI assessment and development journey.
+
+                </p>
+
+
+                <div class="auth-features">
+
+
+                    <div class="auth-feature">
+
+                        <div class="feature-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Profile Information
+                            </strong>
+
+                            <p>
+                                Your profile, education,
+                                experience and professional
+                                evidence will support your assessment.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="auth-feature">
+
+                        <div class="feature-number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                AI-Assisted Evaluation
+                            </strong>
+
+                            <p>
+                                AI may analyse your responses
+                                and evidence to support capability
+                                scoring and assessment insights.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="auth-feature">
+
+                        <div class="feature-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Evidence-Based Assessment
+                            </strong>
+
+                            <p>
+                                Your responses are evaluated
+                                using structured evidence and
+                                confidence signals.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================
+                 CONSENT CARD
+            ========================== -->
+
+            <section class="auth-card">
+
+
+                <div class="auth-card-header">
+
+                    <div class="auth-icon">
+                        ✓
+                    </div>
+
+
+                    <h2>
+                        Review & Consent
+                    </h2>
+
+
+                    <p>
+                        Please review the following before continuing.
+                    </p>
+
+                </div>
+
+
+
+                <!-- =========================
+                     CONSENT FORM
+                ========================== -->
+
+                <form id="consentForm">
+
+
+                    <!-- Privacy Consent -->
+
+                    <div class="consent-item">
+
+                        <div class="consent-title">
+
+                            <input
+                                type="checkbox"
+                                id="privacyConsent"
+                                required
+                            >
+
+                            <label for="privacyConsent">
+
+                                Privacy & Information Use
+
+                            </label>
+
+                        </div>
+
+
+                        <p>
+
+                            I understand that the information
+                            I provide may be stored and used
+                            for the purpose of conducting my
+                            METI assessment and generating
+                            assessment insights.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- AI Consent -->
+
+                    <div class="consent-item">
+
+                        <div class="consent-title">
+
+                            <input
+                                type="checkbox"
+                                id="aiConsent"
+                                required
+                            >
+
+                            <label for="aiConsent">
+
+                                AI-Assisted Assessment
+
+                            </label>
+
+                        </div>
+
+
+                        <p>
+
+                            I understand that AI-assisted
+                            evaluation may be used to analyse
+                            my assessment responses and supporting
+                            evidence.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Communication Preference -->
+
+                    <div class="consent-item">
+
+                        <div class="consent-title">
+
+                            <input
+                                type="checkbox"
+                                id="communicationConsent"
+                            >
+
+                            <label for="communicationConsent">
+
+                                Product & Development Updates
+
+                            </label>
+
+                        </div>
+
+
+                        <p>
+
+                            I would like to receive relevant
+                            communications about my assessment
+                            and development journey.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Important Notice -->
+
+                    <div class="consent-notice">
+
+                        <strong>
+                            Important
+                        </strong>
+
+                        <p>
+
+                            You must provide the required
+                            privacy and AI-assessment consent
+                            to continue.
+
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- Error -->
+
+                    <div
+                        id="consentError"
+                        class="form-message error-message">
+
+                    </div>
+
+
+
+                    <!-- Continue -->
+
+                    <button
+                        type="submit"
+                        class="auth-submit">
+
+                        Continue to Profile →
+
+                    </button>
+
+
+                </form>
+
+
+
+                <p class="auth-footer">
+
+                    You can review your information
+                    before starting the assessment.
+
+                </p>
+
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../script.js"></script>
+
+
+</body>
+
+</html>

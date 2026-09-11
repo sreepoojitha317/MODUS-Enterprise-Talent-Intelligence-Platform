@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Register | METI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body class="auth-page">
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="auth-logo">
+            METI
+        </a>
+
+        <div class="nav-links">
+
+            <span class="auth-question">
+                Already have an account?
+            </span>
+
+            <a href="login.html" class="nav-button">
+                Login
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         REGISTER SECTION
+    ========================== -->
+
+    <main class="auth-container">
+
+        <div class="auth-wrapper">
+
+
+            <!-- Left Information -->
+
+            <section class="auth-intro">
+
+                <p class="eyebrow">
+                    JOIN METI
+                </p>
+
+                <h1>
+                    Start your<br>
+                    <span>consulting journey.</span>
+                </h1>
+
+                <p class="auth-description">
+                    Create your account to begin your
+                    personalised management consulting
+                    assessment and development journey.
+                </p>
+
+
+                <div class="auth-features">
+
+                    <div class="auth-feature">
+
+                        <div class="feature-number">
+                            01
+                        </div>
+
+                        <div>
+                            <strong>
+                                Build Your Profile
+                            </strong>
+
+                            <p>
+                                Share your education,
+                                experience and professional profile.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="auth-feature">
+
+                        <div class="feature-number">
+                            02
+                        </div>
+
+                        <div>
+                            <strong>
+                                Demonstrate Your Capability
+                            </strong>
+
+                            <p>
+                                Complete an adaptive,
+                                evidence-based assessment.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="auth-feature">
+
+                        <div class="feature-number">
+                            03
+                        </div>
+
+                        <div>
+                            <strong>
+                                Discover Your Pathway
+                            </strong>
+
+                            <p>
+                                Understand your strengths
+                                and development opportunities.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- Register Card -->
+
+            <section class="auth-card">
+
+                <div class="auth-card-header">
+
+                    <div class="auth-icon">
+                        ✦
+                    </div>
+
+                    <h2>
+                        Create your account
+                    </h2>
+
+                    <p>
+                        Enter your details to get started.
+                    </p>
+
+                </div>
+
+
+                <form id="registerForm">
+
+
+                    <!-- Full Name -->
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="you@example.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Create a password"
+                            minlength="6"
+                            required
+                        >
+
+                        <small>
+                            Minimum 6 characters
+                        </small>
+
+                    </div>
+
+
+                    <!-- Confirm Password -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            placeholder="Re-enter your password"
+                            minlength="6"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Terms -->
+
+                    <div class="checkbox-group">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required
+                        >
+
+                        <label for="terms">
+                            I agree to the platform terms and
+                            consent to my information being used
+                            for the assessment.
+                        </label>
+
+                    </div>
+
+
+                    <!-- Error -->
+
+                    <div
+                        id="registerError"
+                        class="form-message error-message">
+                    </div>
+
+
+                    <!-- Success -->
+
+                    <div
+                        id="registerSuccess"
+                        class="form-message success-message">
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="auth-submit">
+
+                        Create Account
+
+                    </button>
+
+
+                </form>
+
+
+                <p class="auth-footer">
+
+                    Already registered?
+
+                    <a href="login.html">
+                        Login here
+                    </a>
+
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>

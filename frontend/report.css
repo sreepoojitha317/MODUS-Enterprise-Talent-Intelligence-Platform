@@ -1,0 +1,1259 @@
+/* =========================================================
+   METI PROFESSIONAL ASSESSMENT REPORT
+   PDF / A4 STYLING
+========================================================= */
+
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #f3f5f9;
+
+    color: #172033;
+
+    line-height: 1.5;
+
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+
+}
+
+
+/* =========================================================
+   MAIN REPORT
+========================================================= */
+
+.report-page {
+
+    width: 210mm;
+
+    min-height: 297mm;
+
+    margin: 20px auto;
+
+    background: #ffffff;
+
+    padding: 18mm 16mm;
+
+    box-shadow:
+        0 12px 40px rgba(20, 30, 60, 0.12);
+
+}
+
+
+/* =========================================================
+   REPORT HEADER
+========================================================= */
+
+.report-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-bottom: 16px;
+
+    border-bottom:
+        2px solid #e8eaf1;
+
+    margin-bottom: 26px;
+
+}
+
+
+.report-brand {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+
+.report-logo {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 12px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d3df5,
+            #8f63ff
+        );
+
+    color: white;
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 6px 16px rgba(109, 61, 245, 0.22);
+
+}
+
+
+.report-brand h1 {
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.5px;
+
+    color: #20243a;
+
+}
+
+
+.report-brand p {
+
+    font-size: 11px;
+
+    color: #737b8f;
+
+    margin-top: 1px;
+
+}
+
+
+.report-header-right {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-end;
+
+    gap: 4px;
+
+}
+
+
+.report-label {
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.3px;
+
+    color: #6d3df5;
+
+}
+
+
+#reportDate {
+
+    font-size: 11px;
+
+    color: #7c8497;
+
+}
+
+
+/* =========================================================
+   SECTIONS
+========================================================= */
+
+.report-section {
+
+    margin-bottom: 26px;
+
+}
+
+
+.section-heading {
+
+    margin-bottom: 16px;
+
+}
+
+
+.section-eyebrow {
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    color: #7452dc;
+
+    margin-bottom: 4px;
+
+}
+
+
+.section-heading h2 {
+
+    font-size: 20px;
+
+    line-height: 1.25;
+
+    color: #1e2435;
+
+    margin-bottom: 5px;
+
+}
+
+
+.section-heading > p:last-child {
+
+    font-size: 11px;
+
+    color: #7a8294;
+
+}
+
+
+/* =========================================================
+   CANDIDATE PROFILE
+========================================================= */
+
+.candidate-section {
+
+    page-break-inside: avoid;
+
+}
+
+
+.candidate-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        58px
+        1fr
+        auto;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 17px;
+
+    border:
+        1px solid #e7e9f0;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #faf9ff,
+            #ffffff
+        );
+
+}
+
+
+.candidate-avatar {
+
+    width: 54px;
+
+    height: 54px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #6d3df5,
+            #9271ff
+        );
+
+    color: white;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+}
+
+
+.candidate-details h3 {
+
+    font-size: 16px;
+
+    color: #202538;
+
+    margin-bottom: 2px;
+
+}
+
+
+.candidate-details p {
+
+    font-size: 11px;
+
+    color: #7b8293;
+
+}
+
+
+.candidate-meta {
+
+    display: flex;
+
+    gap: 30px;
+
+}
+
+
+.candidate-meta div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+}
+
+
+.candidate-meta span {
+
+    font-size: 9px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+
+    color: #9298a8;
+
+    font-weight: 700;
+
+}
+
+
+.candidate-meta strong {
+
+    font-size: 10px;
+
+    color: #33394d;
+
+}
+
+
+/* =========================================================
+   METRIC CARDS
+========================================================= */
+
+.metric-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+}
+
+
+.metric-card {
+
+    padding: 15px;
+
+    border:
+        1px solid #e6e8ef;
+
+    border-radius: 13px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 4px 12px rgba(25, 35, 65, 0.04);
+
+    page-break-inside: avoid;
+
+}
+
+
+.metric-label {
+
+    display: block;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    color: #7653dc;
+
+    margin-bottom: 7px;
+
+}
+
+
+.metric-card strong {
+
+    display: block;
+
+    font-size: 25px;
+
+    line-height: 1;
+
+    color: #20263a;
+
+    margin-bottom: 6px;
+
+}
+
+
+.metric-card small {
+
+    display: block;
+
+    font-size: 9px;
+
+    color: #7c8393;
+
+}
+
+
+.metric-progress {
+
+    height: 5px;
+
+    width: 100%;
+
+    background: #ececf3;
+
+    border-radius: 10px;
+
+    overflow: hidden;
+
+    margin-top: 11px;
+
+}
+
+
+.metric-progress div {
+
+    height: 100%;
+
+    width: 0%;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            90deg,
+            #6d3df5,
+            #9b79ff
+        );
+
+}
+
+
+/* Different metric accents */
+
+.metric-card:nth-child(2)
+.metric-progress div {
+
+    background:
+        linear-gradient(
+            90deg,
+            #377dff,
+            #68a0ff
+        );
+
+}
+
+
+.metric-card:nth-child(3)
+.metric-progress div {
+
+    background:
+        linear-gradient(
+            90deg,
+            #16a673,
+            #42c992
+        );
+
+}
+
+
+.metric-card:nth-child(4)
+.metric-progress div {
+
+    background:
+        linear-gradient(
+            90deg,
+            #e88b25,
+            #f3b55c
+        );
+
+}
+
+
+/* =========================================================
+   OVERALL ASSESSMENT
+========================================================= */
+
+.overall-section {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 20px 22px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f4f0ff,
+            #faf9ff
+        );
+
+    border:
+        1px solid #e5ddff;
+
+    margin-bottom: 28px;
+
+    page-break-inside: avoid;
+
+}
+
+
+.overall-section h2 {
+
+    font-size: 24px;
+
+    color: #5e36c8;
+
+    margin-bottom: 5px;
+
+}
+
+
+#overallDescription {
+
+    font-size: 10.5px;
+
+    max-width: 470px;
+
+    color: #6f7586;
+
+}
+
+
+.overall-score {
+
+    min-width: 105px;
+
+    text-align: center;
+
+    padding: 12px;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    border:
+        1px solid #e2dcf6;
+
+}
+
+
+.overall-score span {
+
+    display: block;
+
+    font-size: 8px;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+
+    font-weight: 700;
+
+    color: #898fa0;
+
+}
+
+
+.overall-score strong {
+
+    font-size: 27px;
+
+    color: #5e36c8;
+
+}
+
+
+.overall-score small {
+
+    font-size: 9px;
+
+    color: #8a90a0;
+
+}
+
+
+/* =========================================================
+   CHART BOX
+========================================================= */
+
+.report-chart-box {
+
+    height: 230px;
+
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border:
+        1px solid #e8eaf0;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+    page-break-inside: avoid;
+
+}
+
+
+.report-chart-box canvas {
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+}
+
+
+/* =========================================================
+   COMPETENCY CHART
+========================================================= */
+
+.competency-section {
+
+    page-break-inside: avoid;
+
+}
+
+
+.competency-chart-box {
+
+    height: 280px;
+
+    padding: 12px;
+
+    border:
+        1px solid #e8eaf0;
+
+    border-radius: 14px;
+
+    background: #ffffff;
+
+}
+
+
+.competency-chart-box canvas {
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+}
+
+
+.competency-stats {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 12px;
+
+    margin-top: 13px;
+
+}
+
+
+.competency-stats > div {
+
+    padding: 12px;
+
+    text-align: center;
+
+    border-radius: 10px;
+
+    background: #f8f8fb;
+
+    border:
+        1px solid #e9eaf0;
+
+}
+
+
+.competency-stats span {
+
+    display: block;
+
+    font-size: 9px;
+
+    color: #858b9b;
+
+    margin-bottom: 3px;
+
+}
+
+
+.competency-stats strong {
+
+    font-size: 18px;
+
+    color: #30364a;
+
+}
+
+
+/* =========================================================
+   REPORT LISTS
+========================================================= */
+
+.report-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+
+}
+
+
+.report-list-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    padding: 11px 13px;
+
+    border-radius: 10px;
+
+    background: #fafafd;
+
+    border:
+        1px solid #e8e9ef;
+
+    font-size: 10.5px;
+
+    color: #454b5d;
+
+    page-break-inside: avoid;
+
+}
+
+
+.list-marker {
+
+    flex-shrink: 0;
+
+    width: 21px;
+
+    height: 21px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #eee9ff;
+
+    color: #6d3df5;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+#gapsList .list-marker {
+
+    background: #fff2df;
+
+    color: #d7831d;
+
+}
+
+
+.empty-state {
+
+    padding: 15px;
+
+    text-align: center;
+
+    font-size: 10px;
+
+    color: #8b91a0;
+
+    background: #fafafd;
+
+    border:
+        1px dashed #dfe1e8;
+
+    border-radius: 10px;
+
+}
+
+
+/* =========================================================
+   RECOMMENDATION
+========================================================= */
+
+.recommendation-section {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    padding: 19px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f4ff,
+            #fbfaff
+        );
+
+    border:
+        1px solid #e4dcff;
+
+    margin-bottom: 28px;
+
+    page-break-inside: avoid;
+
+}
+
+
+.recommendation-icon {
+
+    width: 40px;
+
+    height: 40px;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #e8e0ff;
+
+    font-size: 20px;
+
+}
+
+
+.recommendation-section h2 {
+
+    font-size: 17px;
+
+    color: #302c43;
+
+    margin-bottom: 6px;
+
+}
+
+
+#recommendationText {
+
+    font-size: 10.5px;
+
+    color: #62697a;
+
+}
+
+
+/* =========================================================
+   HISTORY
+========================================================= */
+
+.history-section {
+
+    page-break-inside: avoid;
+
+}
+
+
+.history-row {
+
+    display: grid;
+
+    grid-template-columns:
+        1.5fr
+        1fr
+        1fr
+        1fr;
+
+    gap: 10px;
+
+    padding: 10px 12px;
+
+    border-bottom:
+        1px solid #eceef2;
+
+    font-size: 9.5px;
+
+}
+
+
+.history-row.header {
+
+    background: #f5f3fb;
+
+    border-radius: 8px;
+
+    font-weight: 800;
+
+    color: #51476e;
+
+}
+
+
+.history-row:not(.header) {
+
+    color: #656c7d;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.report-footer {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 20px;
+
+    margin-top: 35px;
+
+    padding-top: 13px;
+
+    border-top:
+        1px solid #e4e6ec;
+
+    font-size: 8px;
+
+    color: #8a90a0;
+
+}
+
+
+.report-footer div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+}
+
+
+.report-footer strong {
+
+    color: #555c70;
+
+    font-size: 10px;
+
+}
+
+
+.report-footer div:last-child {
+
+    text-align: right;
+
+}
+
+
+/* =========================================================
+   PRINT / PDF
+========================================================= */
+
+@media print {
+
+    html,
+    body {
+
+        background: #ffffff;
+
+    }
+
+
+    body {
+
+        margin: 0;
+
+    }
+
+
+    .report-page {
+
+        width: 210mm;
+
+        min-height: 297mm;
+
+        margin: 0;
+
+        padding: 15mm 14mm;
+
+        box-shadow: none;
+
+    }
+
+
+    .report-section {
+
+        break-inside: avoid;
+
+    }
+
+
+    .candidate-section,
+    .metric-grid,
+    .overall-section,
+    .competency-section,
+    .recommendation-section {
+
+        break-inside: avoid;
+
+    }
+
+
+    .report-chart-box,
+    .competency-chart-box {
+
+        break-inside: avoid;
+
+    }
+
+}
+
+
+/* =========================================================
+   A4 PAGE
+========================================================= */
+
+@page {
+
+    size: A4;
+
+    margin: 0;
+
+}
+
+
+/* =========================================================
+   SMALL SCREEN PREVIEW
+========================================================= */
+
+@media screen and (max-width: 900px) {
+
+    .report-page {
+
+        width: 100%;
+
+        margin: 0;
+
+        padding: 25px;
+
+    }
+
+
+    .metric-grid {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+
+    .candidate-grid {
+
+        grid-template-columns:
+            58px
+            1fr;
+
+    }
+
+
+    .candidate-meta {
+
+        grid-column: 1 / -1;
+
+    }
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .report-page {
+
+        padding: 18px;
+
+    }
+
+
+    .report-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 12px;
+
+    }
+
+
+    .report-header-right {
+
+        align-items: flex-start;
+
+    }
+
+
+    .metric-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .overall-section {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .overall-score {
+
+        width: 100%;
+
+    }
+
+
+    .candidate-grid {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .candidate-meta {
+
+        flex-direction: column;
+
+        gap: 10px;
+
+    }
+
+
+    .competency-stats {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .report-footer {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+    }
+
+
+    .report-footer div:last-child {
+
+        text-align: left;
+
+    }
+
+}

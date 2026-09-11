@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | METI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-page login-page">
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+
+        <a href="index.html" class="auth-logo">
+            METI
+        </a>
+
+        <div class="nav-links">
+
+            <span class="auth-question">
+                Don't have an account?
+            </span>
+
+            <a href="register.html" class="nav-button">
+                Create Account
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+    <main class="auth-container">
+
+        <div class="auth-wrapper">
+
+
+            <!-- LEFT SIDE -->
+            <section class="auth-intro">
+
+                <p class="eyebrow">
+                    WELCOME BACK
+                </p>
+
+                <h1>
+                    Continue your<br>
+                    <span>consulting journey.</span>
+                </h1>
+
+                <p class="auth-description">
+
+                    Sign in to continue your METI assessment,
+                    review your progress and explore your
+                    professional development insights.
+
+                </p>
+
+
+                <div class="auth-features">
+
+                    <div class="auth-feature">
+
+                        <div class="feature-number">
+                            01
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Evidence-Based Assessment
+                            </strong>
+
+                            <p>
+                                Understand your demonstrated
+                                capabilities through structured
+                                assessment evidence.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="auth-feature">
+
+                        <div class="feature-number">
+                            02
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Adaptive Experience
+                            </strong>
+
+                            <p>
+                                Your assessment adapts based on
+                                the evidence gathered from your
+                                responses.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="auth-feature">
+
+                        <div class="feature-number">
+                            03
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                Development Insights
+                            </strong>
+
+                            <p>
+                                Discover strengths, development
+                                gaps and your recommended
+                                growth pathway.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- LOGIN CARD -->
+            <section class="auth-card login-card">
+
+                <div class="auth-card-header">
+
+                    <div class="auth-icon">
+                        →
+                    </div>
+
+                    <h2>
+                        Welcome back
+                    </h2>
+
+                    <p>
+                        Sign in to continue your journey.
+                    </p>
+
+                </div>
+
+
+                <form id="loginForm">
+
+
+                    <!-- EMAIL -->
+                    <div class="form-group">
+
+                        <label for="loginEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="Enter your email address"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+                    <div class="form-group">
+
+                        <div class="password-label-row">
+
+                            <label for="loginPassword">
+                                Password
+                            </label>
+
+                            <span class="password-hint">
+                                Minimum 6 characters
+                            </span>
+
+                        </div>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- ERROR -->
+                    <div
+                        id="loginError"
+                        class="form-message error-message"
+                    ></div>
+
+
+                    <!-- SUCCESS -->
+                    <div
+                        id="loginSuccess"
+                        class="form-message success-message"
+                    ></div>
+
+
+                    <!-- BUTTON -->
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
+                        Sign In →
+                    </button>
+
+                </form>
+
+
+                <p class="auth-footer">
+
+                    Don't have an account?
+
+                    <a href="register.html">
+                        Create one
+                    </a>
+
+                </p>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- SUPABASE -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <script src="../script.js"></script>
+
+</body>
+
+</html>
