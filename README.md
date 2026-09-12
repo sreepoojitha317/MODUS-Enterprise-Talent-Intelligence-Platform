@@ -1,5 +1,5 @@
 
-                                                     # METI — Management Consulting Assessment Platform
+  # METI — Management Consulting Assessment Platform
 
 METI is an AI-assisted management consulting assessment platform designed to evaluate a candidate's problem-solving, analytical thinking, communication, decision-making, and consulting-related capabilities.
 
