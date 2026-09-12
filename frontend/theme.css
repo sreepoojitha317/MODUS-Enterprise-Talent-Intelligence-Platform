@@ -1,0 +1,2287 @@
+/* =========================================================
+   METI VISUAL SYSTEM
+   LIGHT CORPORATE / MODERN ENTERPRISE
+   ========================================================= */
+
+:root {
+    --meti-ink: #17343a;
+    --meti-ink-soft: #426269;
+
+    --meti-teal: #087f7b;
+    --meti-teal-2: #10a7a0;
+
+    --meti-blue: #2c67d8;
+    --meti-green: #48b86b;
+    --meti-orange: #f0a33a;
+    --meti-pink: #d95aa6;
+    --meti-sky: #70c7d1;
+
+    --meti-bg: #f6fbfa;
+    --meti-panel: rgba(255,255,255,.92);
+    --meti-border: #dcebea;
+
+    --meti-shadow:
+        0 18px 50px rgba(18,65,70,.10);
+
+    --meti-shadow-soft:
+        0 8px 28px rgba(18,65,70,.08);
+
+    --meti-radius: 18px;
+}
+
+
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    color: var(--meti-ink);
+}
+
+
+/* =========================================================
+   IMPORTANT
+   REMOVE ALL OLD CSS-GENERATED METI LOGOS
+   ========================================================= */
+
+/*
+   The real METI logo is an image:
+   METI_logo_exact.png
+
+   DO NOT create the logo with pseudo-elements.
+*/
+
+.logo::before,
+.logo::after,
+
+.auth-logo::before,
+.auth-logo::after,
+
+.brand-icon::before,
+.brand-icon::after,
+
+.report-logo::before,
+.report-logo::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+    animation: none !important;
+}
+
+
+/* =========================================================
+   REAL METI PNG LOGO
+   ========================================================= */
+
+.auth-logo {
+    display: inline-flex !important;
+    align-items: center !important;
+
+    height: 100% !important;
+
+    flex-shrink: 0 !important;
+
+    text-decoration: none !important;
+    cursor: pointer !important;
+
+    position: relative !important;
+}
+
+
+/*
+   Layout:
+
+   [ REAL PNG MARK ]  METI
+*/
+
+.meti-logo {
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    gap: 6px !important;
+
+    flex-shrink: 0 !important;
+
+    position: relative !important;
+}
+
+
+/*
+   Crop the original complete PNG.
+
+   METI_logo_exact.png contains:
+
+   [ circular mark ][ METI word ]
+
+   This wrapper shows only the circular mark.
+*/
+
+.meti-mark-wrap {
+    width: 66px !important;
+    height: 61px !important;
+
+    overflow: hidden !important;
+
+    position: relative !important;
+
+    display: block !important;
+
+    flex-shrink: 0 !important;
+}
+
+
+.meti-mark {
+    position: absolute !important;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 171px !important;
+    height: 61px !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    display: block !important;
+
+    object-fit: contain !important;
+    object-position: left center !important;
+
+    flex-shrink: 0 !important;
+
+    filter:
+        drop-shadow(
+            0 3px 6px
+            rgba(44,83,120,.08)
+        ) !important;
+}
+
+
+/*
+   Separate METI text.
+*/
+
+.meti-text {
+    display: inline-block !important;
+
+    color: #0b4b5a !important;
+
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif !important;
+
+    font-size: 32px !important;
+
+    line-height: 1 !important;
+
+    font-weight: 800 !important;
+
+    letter-spacing: -1.2px !important;
+
+    white-space: nowrap !important;
+
+    transform: translateX(2px) !important;
+}
+
+
+/* =========================================================
+   BRAND ICONS
+   ========================================================= */
+
+/*
+   These are normal UI icons.
+   They must NOT generate the METI logo.
+*/
+
+.brand-icon,
+.report-logo {
+    position: relative;
+}
+
+
+/* =========================================================
+   NAVIGATION
+   ========================================================= */
+
+.navbar,
+.topbar {
+    background:
+        rgba(255,255,255,.94) !important;
+
+    border-bottom:
+        1px solid var(--meti-border) !important;
+
+    box-shadow:
+        0 5px 24px rgba(17,66,70,.05);
+
+    backdrop-filter:
+        blur(18px);
+}
+
+
+.nav-links a,
+.nav-link,
+.auth-question,
+.brand span {
+    color:
+        var(--meti-ink-soft) !important;
+}
+
+
+.nav-links a:hover,
+.nav-link:hover {
+    color:
+        var(--meti-teal) !important;
+}
+
+
+.nav-button {
+    background:
+        var(--meti-teal) !important;
+
+    color:
+        #fff !important;
+
+    border-color:
+        var(--meti-teal) !important;
+
+    border-radius:
+        11px !important;
+
+    box-shadow:
+        0 8px 20px
+        rgba(8,127,123,.18);
+}
+
+
+.nav-button:hover {
+    background:
+        var(--meti-ink) !important;
+
+    border-color:
+        var(--meti-ink) !important;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   SHARED BUTTONS
+   ========================================================= */
+
+.primary-button,
+.primary-action,
+.auth-submit,
+.profile-submit,
+.assessment-submit,
+.dashboard-btn {
+    background:
+        linear-gradient(
+            135deg,
+            var(--meti-teal),
+            var(--meti-teal-2)
+        ) !important;
+
+    border-color:
+        transparent !important;
+
+    color:
+        #fff !important;
+
+    border-radius:
+        12px !important;
+
+    box-shadow:
+        0 10px 24px
+        rgba(8,127,123,.20);
+}
+
+
+.primary-button:hover,
+.primary-action:hover,
+.auth-submit:hover,
+.profile-submit:hover,
+.assessment-submit:hover,
+.dashboard-btn:hover {
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 14px 28px
+        rgba(8,127,123,.25);
+}
+
+
+.secondary-button,
+.secondary-action,
+.back-btn,
+.history-btn,
+.retake-btn {
+    background:
+        #fff !important;
+
+    color:
+        var(--meti-teal) !important;
+
+    border-color:
+        var(--meti-border) !important;
+
+    border-radius:
+        12px !important;
+}
+
+
+/* =========================================================
+   EYEBROWS
+   ========================================================= */
+
+.eyebrow,
+.card-eyebrow,
+.section-eyebrow,
+.report-label {
+    color:
+        var(--meti-teal) !important;
+}
+
+
+/* =========================================================
+   LANDING
+   ========================================================= */
+
+.hero {
+    background:
+        radial-gradient(
+            circle at 78% 18%,
+            rgba(112,199,209,.20),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 16% 88%,
+            rgba(72,184,107,.13),
+            transparent 28%
+        ),
+        linear-gradient(
+            135deg,
+            #f8fcfb,
+            #ffffff 55%,
+            #f1f8f7
+        ) !important;
+}
+
+
+.hero h1,
+.auth-intro h1,
+.profile-intro h1,
+.assessment-hero h1 {
+    color:
+        var(--meti-ink) !important;
+}
+
+
+.hero h1 span,
+.auth-intro h1 span,
+.profile-intro h1 span,
+.assessment-hero h1 span {
+    color:
+        var(--meti-teal) !important;
+}
+
+
+.hero-description,
+.auth-description,
+.profile-description,
+.assessment-subtitle {
+    color:
+        var(--meti-ink-soft) !important;
+}
+
+
+/* =========================================================
+   CARDS
+   ========================================================= */
+
+.hero-card,
+.auth-card,
+.profile-card,
+.question-card,
+.assessment-progress-card,
+.resume-insight,
+.auth-wrapper > section,
+.profile-wrapper > section {
+    border:
+        1px solid var(--meti-border) !important;
+
+    box-shadow:
+        var(--meti-shadow) !important;
+}
+
+
+.hero-card {
+    background:
+        rgba(255,255,255,.94) !important;
+}
+
+
+.card-icon,
+.auth-icon,
+.profile-icon,
+.insight-icon,
+.how-icon,
+.upload-icon,
+.recommendation-icon,
+.history-icon {
+    background:
+        linear-gradient(
+            135deg,
+            var(--meti-teal),
+            var(--meti-sky)
+        ) !important;
+
+    color:
+        #fff !important;
+
+    box-shadow:
+        0 9px 22px
+        rgba(8,127,123,.18);
+}
+
+
+/* =========================================================
+   AUTH / PROFILE
+   ========================================================= */
+
+.auth-page,
+.login-page,
+.profile-page,
+.assessment-page {
+    background:
+        radial-gradient(
+            circle at 5% 10%,
+            rgba(112,199,209,.16),
+            transparent 26%
+        ),
+        radial-gradient(
+            circle at 94% 88%,
+            rgba(72,184,107,.13),
+            transparent 28%
+        ),
+        #f7fbfa !important;
+}
+
+
+.auth-container,
+.profile-container,
+.assessment-container {
+    position:
+        relative;
+}
+
+
+/* =========================================================
+   FORM
+   ========================================================= */
+
+.form-group input,
+.form-group textarea,
+.form-group select,
+#answerText,
+.resume-upload {
+    border-color:
+        #cfe1df !important;
+
+    background:
+        #fff !important;
+
+    color:
+        var(--meti-ink) !important;
+
+    border-radius:
+        12px !important;
+}
+
+
+.form-group input:focus,
+.form-group textarea:focus,
+#answerText:focus {
+    border-color:
+        var(--meti-teal) !important;
+
+    box-shadow:
+        0 0 0 4px
+        rgba(8,127,123,.10) !important;
+
+    outline:
+        none;
+}
+
+
+/* =========================================================
+   NUMBERS
+   ========================================================= */
+
+.feature-number,
+.step-number,
+.question-number {
+    color:
+        var(--meti-teal) !important;
+}
+
+
+.checkbox-group input:checked {
+    accent-color:
+        var(--meti-teal);
+}
+
+
+/* =========================================================
+   ASSESSMENT
+   ========================================================= */
+
+.assessment-status {
+    background:
+        rgba(255,255,255,.84) !important;
+
+    border:
+        1px solid var(--meti-border) !important;
+}
+
+
+.status-dot {
+    background:
+        var(--meti-green) !important;
+}
+
+
+.competency-badge {
+    background:
+        #e9f7f5 !important;
+
+    color:
+        var(--meti-teal) !important;
+
+    border-color:
+        #cde9e5 !important;
+}
+
+
+.progress-fill,
+.assessment-progress-fill,
+.mini-progress-fill {
+    background:
+        linear-gradient(
+            90deg,
+            var(--meti-teal),
+            var(--meti-blue)
+        ) !important;
+}
+
+
+.sample-answer-btn {
+    color:
+        var(--meti-teal) !important;
+
+    border-color:
+        #bfe0dc !important;
+
+    background:
+        #f2fbfa !important;
+}
+
+
+/* =========================================================
+   DASHBOARD
+   ========================================================= */
+
+.dashboard-card,
+.score-card,
+.chart-card,
+.competency-card,
+.insight-card,
+.interpretation-card,
+.recommendation-card,
+.strengths-card,
+.gaps-card,
+.history-card,
+.profile-card,
+.summary-stat {
+    background:
+        rgba(255,255,255,.94) !important;
+
+    border-color:
+        var(--meti-border) !important;
+
+    box-shadow:
+        var(--meti-shadow-soft) !important;
+}
+
+
+.score-blue {
+    background:
+        linear-gradient(
+            135deg,
+            #e9f2ff,
+            #fff
+        ) !important;
+}
+
+
+.score-green {
+    background:
+        linear-gradient(
+            135deg,
+            #eaf8ef,
+            #fff
+        ) !important;
+}
+
+
+.score-orange {
+    background:
+        linear-gradient(
+            135deg,
+            #fff5e7,
+            #fff
+        ) !important;
+}
+
+
+.score-purple {
+    background:
+        linear-gradient(
+            135deg,
+            #f6ebf7,
+            #fff
+        ) !important;
+}
+
+
+.overall-badge {
+    background:
+        #e8f7f4 !important;
+
+    color:
+        var(--meti-teal) !important;
+
+    border-color:
+        #cde9e5 !important;
+}
+
+
+.strong-dot,
+.good-dot {
+    background:
+        var(--meti-green) !important;
+}
+
+
+.developing-dot {
+    background:
+        var(--meti-orange) !important;
+}
+
+
+.weak-dot {
+    background:
+        var(--meti-pink) !important;
+}
+
+
+/* =========================================================
+   HISTORY
+   ========================================================= */
+
+.history-card,
+.attempt-item,
+.summary-card {
+    border-color:
+        var(--meti-border) !important;
+
+    box-shadow:
+        var(--meti-shadow-soft) !important;
+}
+
+
+.completed-badge {
+    background:
+        #eaf8ef !important;
+
+    color:
+        #2d8a4a !important;
+}
+
+
+.view-btn {
+    background:
+        var(--meti-teal) !important;
+
+    border-color:
+        var(--meti-teal) !important;
+}
+
+
+/* =========================================================
+   RESULT
+   ========================================================= */
+
+.result-container .score-card,
+.result-section,
+.explanation-item,
+.recommendation,
+.scale-item {
+    border-color:
+        var(--meti-border) !important;
+}
+
+
+.result-header h1,
+.score-value {
+    color:
+        var(--meti-ink) !important;
+}
+
+
+.recommendation {
+    background:
+        #edf8f6 !important;
+
+    border-left-color:
+        var(--meti-teal) !important;
+}
+
+
+/* =========================================================
+   REAL LOGO — RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .meti-logo {
+        gap:
+            12px !important;
+    }
+
+    .meti-mark-wrap {
+        width:
+            58px !important;
+
+        height:
+            56px !important;
+    }
+
+    .meti-mark {
+        width:
+            157px !important;
+
+        height:
+            56px !important;
+    }
+
+    .meti-text {
+        font-size:
+            29px !important;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .meti-logo {
+        gap:
+            10px !important;
+    }
+
+    .meti-mark-wrap {
+        width:
+            50px !important;
+
+        height:
+            49px !important;
+    }
+
+    .meti-mark {
+        width:
+            137px !important;
+
+        height:
+            49px !important;
+    }
+
+    .meti-text {
+        font-size:
+            26px !important;
+
+        letter-spacing:
+            -0.8px !important;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .meti-logo {
+        gap:
+            8px !important;
+    }
+
+    .meti-mark-wrap {
+        width:
+            45px !important;
+
+        height:
+            44px !important;
+    }
+
+    .meti-mark {
+        width:
+            124px !important;
+
+        height:
+            44px !important;
+    }
+
+    .meti-text {
+        font-size:
+            24px !important;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        scroll-behavior:
+            auto !important;
+    }
+}
+/* =========================================================
+   METI ASSESSMENT — LIGHT MINT / TEAL THEME
+   Matches Login / Register / Profile
+========================================================= */
+
+.assessment-page {
+    position: relative !important;
+    min-height: 100vh !important;
+    background:
+        radial-gradient(
+            circle at 78% 18%,
+            rgba(18, 190, 178, 0.14) 0%,
+            rgba(18, 190, 178, 0.06) 20%,
+            transparent 42%
+        ),
+        radial-gradient(
+            circle at 12% 76%,
+            rgba(30, 180, 170, 0.09) 0%,
+            transparent 34%
+        ),
+        linear-gradient(
+            135deg,
+            #f8fcfb 0%,
+            #eef9f7 48%,
+            #f9fcfb 100%
+        ) !important;
+    overflow-x: hidden !important;
+    overflow-y: visible !important;
+}
+
+
+/* =========================================================
+   BACKGROUND GLOWS
+========================================================= */
+
+.assessment-bg-glow {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    filter: blur(2px);
+}
+
+.assessment-bg-glow-one {
+    width: 430px;
+    height: 430px;
+    right: -180px;
+    top: 100px;
+    background: rgba(19, 181, 171, 0.12);
+    filter: blur(45px);
+    animation: assessmentGlowFloat 7s ease-in-out infinite;
+}
+
+.assessment-bg-glow-two {
+    width: 300px;
+    height: 300px;
+    left: -150px;
+    bottom: 100px;
+    background: rgba(95, 87, 190, 0.08);
+    filter: blur(55px);
+    animation: assessmentGlowFloat 9s ease-in-out infinite reverse;
+}
+
+
+/* =========================================================
+   FLOATING ORBS
+========================================================= */
+
+.assessment-orb {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.assessment-orb-teal {
+    width: 48px;
+    height: 48px;
+    top: 130px;
+    left: 8%;
+    background: rgba(12, 164, 154, 0.14);
+    border: 1px solid rgba(12, 164, 154, 0.18);
+    animation: assessmentOrbFloat 6s ease-in-out infinite;
+}
+
+.assessment-orb-orange {
+    width: 38px;
+    height: 38px;
+    top: 180px;
+    right: 12%;
+    background: rgba(242, 153, 74, 0.15);
+    border: 1px solid rgba(242, 153, 74, 0.16);
+    animation: assessmentOrbFloat 7s ease-in-out infinite reverse;
+}
+
+.assessment-orb-purple {
+    width: 34px;
+    height: 34px;
+    bottom: 150px;
+    left: 11%;
+    background: rgba(111, 91, 180, 0.12);
+    border: 1px solid rgba(111, 91, 180, 0.14);
+    animation: assessmentOrbFloat 8s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   DECORATIVE RINGS
+========================================================= */
+
+.assessment-ring {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+    border: 1px solid rgba(14, 157, 148, 0.10);
+}
+
+.assessment-ring-one {
+    width: 430px;
+    height: 430px;
+    right: -240px;
+    top: 50px;
+}
+
+.assessment-ring-two {
+    width: 280px;
+    height: 280px;
+    left: -190px;
+    bottom: 40px;
+    border-color: rgba(95, 87, 190, 0.08);
+}
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.assessment-page .navbar {
+    position: relative !important;
+    z-index: 20 !important;
+
+    height: 74px !important;
+    min-height: 74px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    padding: 0 clamp(28px, 7.8vw, 140px) !important;
+
+    background: rgba(255, 255, 255, 0.94) !important;
+
+    border-bottom: 1px solid rgba(22, 94, 102, 0.08) !important;
+
+    box-shadow:
+        0 5px 24px rgba(30, 80, 92, 0.07) !important;
+
+    backdrop-filter: blur(18px) !important;
+}
+
+
+/* =========================================================
+   REAL METI LOGO
+   PNG ONLY — NO CSS GENERATED LOGO
+========================================================= */
+
+.assessment-page .auth-logo {
+    display: inline-flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    flex-shrink: 0 !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    position: relative !important;
+}
+
+
+/* Kill ALL pseudo logos */
+
+.assessment-page .auth-logo::before,
+.assessment-page .auth-logo::after,
+.assessment-page .logo::before,
+.assessment-page .logo::after,
+.assessment-page .brand-icon::before,
+.assessment-page .brand-icon::after,
+.assessment-page .report-logo::before,
+.assessment-page .report-logo::after {
+    content: none !important;
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/* Logo wrapper */
+
+.assessment-page .meti-logo {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+
+    gap: 6px !important;
+
+    height: 61px !important;
+    flex-shrink: 0 !important;
+}
+
+
+/* Circular mark crop */
+
+.assessment-page .meti-mark-wrap {
+    width: 66px !important;
+    height: 61px !important;
+
+    overflow: hidden !important;
+    position: relative !important;
+
+    display: block !important;
+    flex-shrink: 0 !important;
+}
+
+
+/* Actual PNG */
+
+.assessment-page .meti-mark {
+    position: absolute !important;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 171px !important;
+    height: 61px !important;
+
+    max-width: none !important;
+    max-height: none !important;
+
+    display: block !important;
+
+    object-fit: contain !important;
+    object-position: left center !important;
+
+    flex-shrink: 0 !important;
+}
+
+
+/* Separate METI text */
+
+.assessment-page .meti-text {
+    display: inline-block !important;
+
+    color: #0b4b5a !important;
+
+    font-family:
+        "Manrope",
+        "DM Sans",
+        "Segoe UI",
+        Arial,
+        sans-serif !important;
+
+    font-size: 32px !important;
+    line-height: 1 !important;
+    font-weight: 800 !important;
+
+    letter-spacing: -1.2px !important;
+
+    white-space: nowrap !important;
+
+    transform: translateX(2px) !important;
+}
+
+
+/* =========================================================
+   RIGHT NAV
+========================================================= */
+
+.assessment-nav-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 22px !important;
+}
+
+.assessment-nav-label {
+    color: #0b4b5a !important;
+
+    font-size: 12px !important;
+    font-weight: 800 !important;
+
+    letter-spacing: 1.6px !important;
+}
+
+.assessment-secure {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 7px !important;
+
+    padding: 8px 13px !important;
+
+    border-radius: 999px !important;
+
+    background: rgba(11, 155, 145, 0.08) !important;
+
+    border: 1px solid rgba(11, 155, 145, 0.13) !important;
+
+    color: #14786f !important;
+
+    font-size: 12px !important;
+    font-weight: 700 !important;
+}
+
+.secure-dot {
+    width: 7px !important;
+    height: 7px !important;
+
+    border-radius: 50% !important;
+
+    background: #10a99d !important;
+
+    box-shadow:
+        0 0 0 4px rgba(16, 169, 157, 0.10) !important;
+
+    animation: securePulse 2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   MAIN
+========================================================= */
+
+.assessment-container {
+    position: relative !important;
+    z-index: 2 !important;
+
+    width: 100% !important;
+
+    min-height: calc(100vh - 74px) !important;
+
+    padding:
+        52px
+        clamp(24px, 7.8vw, 140px)
+        90px !important;
+
+    box-sizing: border-box !important;
+
+    overflow: visible !important;
+}
+
+.assessment-shell {
+    width: 100% !important;
+    max-width: 1120px !important;
+
+    margin: 0 auto !important;
+
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.assessment-hero {
+    display: flex !important;
+    align-items: flex-end !important;
+    justify-content: space-between !important;
+
+    gap: 45px !important;
+
+    margin-bottom: 28px !important;
+}
+
+.assessment-hero-content {
+    max-width: 720px !important;
+}
+
+.assessment-page .eyebrow {
+    display: inline-flex !important;
+    align-items: center !important;
+
+    padding: 8px 13px !important;
+
+    border-radius: 999px !important;
+
+    background: rgba(11, 155, 145, 0.08) !important;
+
+    border: 1px solid rgba(11, 155, 145, 0.12) !important;
+
+    color: #0b8c83 !important;
+
+    font-size: 11px !important;
+    font-weight: 800 !important;
+
+    letter-spacing: 1.5px !important;
+
+    margin: 0 0 18px !important;
+}
+
+.assessment-hero h1 {
+    margin: 0 !important;
+
+    color: #09243a !important;
+
+    font-family:
+        "Manrope",
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif !important;
+
+    font-size: clamp(42px, 5vw, 62px) !important;
+
+    line-height: 1.05 !important;
+
+    letter-spacing: -2.5px !important;
+
+    font-weight: 800 !important;
+}
+
+.assessment-hero h1 span {
+    display: block !important;
+
+    color: #0a9b91 !important;
+}
+
+.assessment-subtitle {
+    max-width: 650px !important;
+
+    margin: 20px 0 0 !important;
+
+    color: #607783 !important;
+
+    font-size: 16px !important;
+
+    line-height: 1.75 !important;
+}
+
+
+/* =========================================================
+   CANDIDATE STATUS
+========================================================= */
+
+.assessment-status {
+    display: flex !important;
+    align-items: center !important;
+    gap: 13px !important;
+
+    min-width: 220px !important;
+
+    padding: 15px 18px !important;
+
+    background: rgba(255, 255, 255, 0.82) !important;
+
+    border: 1px solid rgba(22, 94, 102, 0.09) !important;
+
+    border-radius: 15px !important;
+
+    box-shadow:
+        0 12px 30px rgba(44, 83, 120, 0.07) !important;
+}
+
+.status-dot {
+    width: 11px !important;
+    height: 11px !important;
+
+    border-radius: 50% !important;
+
+    background: #0a9b91 !important;
+
+    box-shadow:
+        0 0 0 5px rgba(10, 155, 145, 0.10) !important;
+}
+
+.assessment-status-text {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3px !important;
+}
+
+.assessment-status strong {
+    color: #12384a !important;
+
+    font-size: 14px !important;
+    font-weight: 800 !important;
+}
+
+.assessment-status span {
+    color: #81939b !important;
+
+    font-size: 11px !important;
+}
+
+
+/* =========================================================
+   RESUME INSIGHT
+========================================================= */
+
+.resume-insight {
+    display: flex !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+
+    padding: 22px 24px !important;
+
+    margin-bottom: 20px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(231, 249, 247, 0.95),
+            rgba(248, 252, 251, 0.95)
+        ) !important;
+
+    border: 1px solid rgba(10, 155, 145, 0.13) !important;
+
+    border-radius: 18px !important;
+
+    box-shadow:
+        0 12px 35px rgba(44, 83, 120, 0.055) !important;
+
+    position: relative !important;
+
+    overflow: hidden !important;
+}
+
+.resume-insight::after {
+    content: "" !important;
+
+    position: absolute !important;
+
+    right: -70px !important;
+    top: -90px !important;
+
+    width: 220px !important;
+    height: 220px !important;
+
+    border-radius: 50% !important;
+
+    border: 1px solid rgba(10, 155, 145, 0.08) !important;
+
+    pointer-events: none !important;
+}
+
+.insight-icon {
+    width: 46px !important;
+    height: 46px !important;
+
+    flex: 0 0 46px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 13px !important;
+
+    color: white !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0a9b91,
+            #20b8aa
+        ) !important;
+
+    box-shadow:
+        0 8px 18px rgba(10, 155, 145, 0.18) !important;
+
+    font-size: 20px !important;
+}
+
+.insight-content {
+    position: relative !important;
+    z-index: 2 !important;
+}
+
+.insight-label {
+    color: #0b938a !important;
+
+    font-size: 10px !important;
+    font-weight: 800 !important;
+
+    letter-spacing: 1.5px !important;
+
+    margin-bottom: 6px !important;
+}
+
+.insight-content h3 {
+    margin: 0 0 5px !important;
+
+    color: #12384a !important;
+
+    font-size: 17px !important;
+    font-weight: 800 !important;
+}
+
+.insight-content p {
+    margin: 0 !important;
+
+    color: #6e838c !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.65 !important;
+}
+
+
+/* =========================================================
+   PROGRESS
+========================================================= */
+
+.assessment-progress-card {
+    padding: 20px 23px !important;
+
+    margin-bottom: 20px !important;
+
+    background: rgba(255, 255, 255, 0.90) !important;
+
+    border: 1px solid rgba(22, 94, 102, 0.08) !important;
+
+    border-radius: 17px !important;
+
+    box-shadow:
+        0 10px 30px rgba(44, 83, 120, 0.055) !important;
+}
+
+.progress-info {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    margin-bottom: 12px !important;
+}
+
+.progress-info > div {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 3px !important;
+}
+
+.progress-small {
+    color: #8a9ba2 !important;
+
+    font-size: 9px !important;
+    font-weight: 800 !important;
+
+    letter-spacing: 1.5px !important;
+}
+
+.progress-info strong {
+    color: #163d4e !important;
+
+    font-size: 14px !important;
+    font-weight: 800 !important;
+}
+
+#progressText {
+    color: #0a9b91 !important;
+    font-size: 16px !important;
+}
+
+.progress-track {
+    width: 100% !important;
+    height: 8px !important;
+
+    background: #e7f1ef !important;
+
+    border-radius: 999px !important;
+
+    overflow: hidden !important;
+}
+
+.assessment-progress-fill {
+    height: 100% !important;
+
+    border-radius: 999px !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0a9b91,
+            #24b9ad
+        ) !important;
+
+    box-shadow:
+        0 2px 8px rgba(10, 155, 145, 0.22) !important;
+
+    transition: width 0.55s ease !important;
+}
+
+
+/* =========================================================
+   QUESTION CARD
+========================================================= */
+
+.question-card {
+    position: relative !important;
+
+    padding: 32px 34px 30px !important;
+
+    background: rgba(255, 255, 255, 0.94) !important;
+
+    border: 1px solid rgba(22, 94, 102, 0.08) !important;
+
+    border-radius: 22px !important;
+
+    box-shadow:
+        0 22px 60px rgba(44, 83, 120, 0.09) !important;
+
+    overflow: hidden !important;
+}
+
+.question-card::before {
+    content: "" !important;
+
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 3px !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0a9b91,
+            #31bdb0,
+            #75cfc7
+        ) !important;
+}
+
+.question-top {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    gap: 15px !important;
+
+    margin-bottom: 27px !important;
+}
+
+.competency-badge {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+
+    padding: 8px 12px !important;
+
+    border-radius: 999px !important;
+
+    background: #edf9f7 !important;
+
+    color: #087e77 !important;
+
+    font-size: 11px !important;
+    font-weight: 800 !important;
+}
+
+.competency-symbol {
+    color: #0a9b91 !important;
+    font-size: 9px !important;
+}
+
+.question-type {
+    color: #8b9ba1 !important;
+
+    font-size: 9px !important;
+    font-weight: 800 !important;
+
+    letter-spacing: 1.4px !important;
+}
+
+.question-number {
+    margin-bottom: 9px !important;
+
+    color: #0a9b91 !important;
+
+    font-size: 11px !important;
+    font-weight: 800 !important;
+
+    letter-spacing: 1.5px !important;
+}
+
+.question-number span {
+    color: #163d4e !important;
+}
+
+.question-card h2 {
+    max-width: 920px !important;
+
+    margin: 0 !important;
+
+    color: #12384a !important;
+
+    font-family:
+        "Manrope",
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif !important;
+
+    font-size: clamp(23px, 2.4vw, 31px) !important;
+
+    line-height: 1.35 !important;
+
+    letter-spacing: -0.6px !important;
+
+    font-weight: 800 !important;
+}
+
+.question-help {
+    margin: 12px 0 25px !important;
+
+    color: #758991 !important;
+
+    font-size: 13px !important;
+
+    line-height: 1.65 !important;
+}
+
+
+/* =========================================================
+   ANSWER AREA
+========================================================= */
+
+.answer-wrapper {
+    padding: 19px !important;
+
+    background: #f8fcfb !important;
+
+    border: 1px solid #e4efed !important;
+
+    border-radius: 16px !important;
+}
+
+.answer-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    gap: 15px !important;
+
+    margin-bottom: 10px !important;
+}
+
+.answer-header label {
+    color: #173f50 !important;
+
+    font-size: 13px !important;
+    font-weight: 800 !important;
+}
+
+.answer-header span {
+    color: #8b9ba1 !important;
+
+    font-size: 10px !important;
+}
+
+.answer-wrapper textarea {
+    width: 100% !important;
+
+    min-height: 185px !important;
+
+    box-sizing: border-box !important;
+
+    resize: vertical !important;
+
+    padding: 16px 17px !important;
+
+    border-radius: 12px !important;
+
+    border: 1px solid #dcebe8 !important;
+
+    outline: none !important;
+
+    background: #ffffff !important;
+
+    color: #234555 !important;
+
+    font-family:
+        "Inter",
+        "Segoe UI",
+        Arial,
+        sans-serif !important;
+
+    font-size: 14px !important;
+
+    line-height: 1.7 !important;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+.answer-wrapper textarea::placeholder {
+    color: #a0afb4 !important;
+}
+
+.answer-wrapper textarea:focus {
+    border-color: #55bdb5 !important;
+
+    box-shadow:
+        0 0 0 4px rgba(10, 155, 145, 0.08) !important;
+}
+
+
+/* =========================================================
+   SUGGESTED ANSWER
+========================================================= */
+
+.suggested-answer-row {
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 12px !important;
+
+    margin-top: 13px !important;
+}
+
+.sample-answer-btn {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 7px !important;
+
+    border: 1px solid rgba(242, 153, 74, 0.25) !important;
+
+    background: #fff8ef !important;
+
+    color: #b96e1c !important;
+
+    padding: 9px 13px !important;
+
+    border-radius: 9px !important;
+
+    font-family: inherit !important;
+
+    font-size: 11px !important;
+    font-weight: 800 !important;
+
+    cursor: pointer !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease !important;
+}
+
+.sample-answer-btn:hover {
+    transform: translateY(-1px) !important;
+
+    background: #fff3e3 !important;
+
+    box-shadow:
+        0 7px 18px rgba(242, 153, 74, 0.12) !important;
+}
+
+.suggested-icon {
+    font-size: 13px !important;
+}
+
+.suggested-answer-hint {
+    color: #94a2a7 !important;
+
+    font-size: 10px !important;
+}
+
+
+/* =========================================================
+   ANSWER FOOTER
+========================================================= */
+
+.answer-footer {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+
+    gap: 15px !important;
+
+    margin-top: 11px !important;
+}
+
+.answer-footer span {
+    color: #91a0a5 !important;
+
+    font-size: 10px !important;
+
+    line-height: 1.5 !important;
+}
+
+#characterCount {
+    color: #0a9b91 !important;
+
+    font-weight: 700 !important;
+
+    white-space: nowrap !important;
+}
+
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.assessment-page .form-message {
+    margin-top: 14px !important;
+
+    padding: 11px 13px !important;
+
+    border-radius: 9px !important;
+
+    font-size: 12px !important;
+}
+
+.assessment-page .error-message {
+    background: #fff2f2 !important;
+
+    border: 1px solid #f2d4d4 !important;
+
+    color: #bd4d4d !important;
+}
+
+.assessment-page .success-message {
+    background: #edf9f6 !important;
+
+    border: 1px solid #cfece7 !important;
+
+    color: #147c72 !important;
+}
+
+
+/* =========================================================
+   SUBMIT BUTTON
+========================================================= */
+
+.assessment-submit {
+    width: 100% !important;
+
+    margin-top: 19px !important;
+
+    min-height: 55px !important;
+
+    border: none !important;
+
+    border-radius: 12px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    gap: 12px !important;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0a9b91,
+            #0b887f
+        ) !important;
+
+    color: #ffffff !important;
+
+    font-family: inherit !important;
+
+    font-size: 14px !important;
+    font-weight: 800 !important;
+
+    cursor: pointer !important;
+
+    box-shadow:
+        0 10px 25px rgba(10, 155, 145, 0.18) !important;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease !important;
+}
+
+.assessment-submit:hover {
+    transform: translateY(-2px) !important;
+
+    filter: brightness(1.04) !important;
+
+    box-shadow:
+        0 15px 32px rgba(10, 155, 145, 0.24) !important;
+}
+
+.assessment-submit:active {
+    transform: translateY(0) !important;
+}
+
+.submit-arrow {
+    font-size: 19px !important;
+
+    transition:
+        transform 0.2s ease !important;
+}
+
+.assessment-submit:hover .submit-arrow {
+    transform: translateX(4px) !important;
+}
+
+
+/* =========================================================
+   HOW IT WORKS
+========================================================= */
+
+.assessment-how {
+    display: flex !important;
+    align-items: center !important;
+
+    justify-content: center !important;
+
+    gap: 16px !important;
+
+    margin: 25px 0 18px !important;
+
+    padding: 18px 20px !important;
+
+    background: rgba(255, 255, 255, 0.68) !important;
+
+    border: 1px solid rgba(22, 94, 102, 0.07) !important;
+
+    border-radius: 17px !important;
+}
+
+.how-item {
+    display: flex !important;
+    align-items: center !important;
+
+    gap: 10px !important;
+
+    min-width: 175px !important;
+}
+
+.how-icon {
+    width: 36px !important;
+    height: 36px !important;
+
+    flex: 0 0 36px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    border-radius: 10px !important;
+
+    background: #eef4f3 !important;
+
+    color: #82979d !important;
+
+    font-size: 10px !important;
+    font-weight: 800 !important;
+}
+
+.how-item.active .how-icon {
+    background: #e4f7f4 !important;
+
+    color: #0a9b91 !important;
+}
+
+.how-content {
+    display: flex !important;
+    flex-direction: column !important;
+
+    gap: 3px !important;
+}
+
+.how-item strong {
+    color: #294a59 !important;
+
+    font-size: 12px !important;
+    font-weight: 800 !important;
+}
+
+.how-item span {
+    color: #91a0a5 !important;
+
+    font-size: 10px !important;
+}
+
+.how-line {
+    width: 45px !important;
+    height: 1px !important;
+
+    background: #dce9e7 !important;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.assessment-footer {
+    margin: 0 !important;
+
+    text-align: center !important;
+
+    color: #91a0a5 !important;
+
+    font-size: 10px !important;
+
+    line-height: 1.6 !important;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes assessmentGlowFloat {
+
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    50% {
+        transform: translate3d(0, 18px, 0);
+    }
+}
+
+@keyframes assessmentOrbFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(8deg);
+    }
+}
+
+@keyframes securePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.55;
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .assessment-page .navbar {
+        padding: 0 28px !important;
+    }
+
+    .assessment-container {
+        padding:
+            42px
+            28px
+            70px !important;
+    }
+
+    .assessment-hero {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+    }
+
+    .assessment-status {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .assessment-how {
+        justify-content: flex-start !important;
+        overflow-x: auto !important;
+    }
+
+    .how-line {
+        flex: 0 0 35px !important;
+    }
+
+    .how-item {
+        min-width: 150px !important;
+    }
+
+    .assessment-page .meti-logo {
+        gap: 12px !important;
+    }
+
+    .assessment-page .meti-mark-wrap {
+        width: 58px !important;
+        height: 56px !important;
+    }
+
+    .assessment-page .meti-mark {
+        width: 157px !important;
+        height: 56px !important;
+    }
+
+    .assessment-page .meti-text {
+        font-size: 29px !important;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .assessment-page .navbar {
+        padding: 0 20px !important;
+    }
+
+    .assessment-nav-label {
+        display: none !important;
+    }
+
+    .assessment-nav-right {
+        gap: 0 !important;
+    }
+
+    .assessment-container {
+        padding:
+            34px
+            18px
+            55px !important;
+    }
+
+    .assessment-hero h1 {
+        font-size: 42px !important;
+        letter-spacing: -1.8px !important;
+    }
+
+    .assessment-subtitle {
+        font-size: 14px !important;
+    }
+
+    .question-card {
+        padding: 27px 20px 23px !important;
+    }
+
+    .question-top {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+    }
+
+    .question-card h2 {
+        font-size: 23px !important;
+    }
+
+    .answer-header,
+    .answer-footer {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+    }
+
+    .suggested-answer-row {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+    }
+
+    .assessment-how {
+        justify-content: flex-start !important;
+        padding: 15px !important;
+    }
+
+    .assessment-page .meti-logo {
+        gap: 10px !important;
+    }
+
+    .assessment-page .meti-mark-wrap {
+        width: 50px !important;
+        height: 49px !important;
+    }
+
+    .assessment-page .meti-mark {
+        width: 137px !important;
+        height: 49px !important;
+    }
+
+    .assessment-page .meti-text {
+        font-size: 26px !important;
+        letter-spacing: -0.8px !important;
+    }
+}
+
+
+@media (max-width: 400px) {
+
+    .assessment-page .meti-logo {
+        gap: 8px !important;
+    }
+
+    .assessment-page .meti-mark-wrap {
+        width: 45px !important;
+        height: 44px !important;
+    }
+
+    .assessment-page .meti-mark {
+        width: 124px !important;
+        height: 44px !important;
+    }
+
+    .assessment-page .meti-text {
+        font-size: 24px !important;
+    }
+
+    .assessment-hero h1 {
+        font-size: 36px !important;
+    }
+
+    .assessment-container {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
+    }
+}

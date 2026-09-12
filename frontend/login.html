@@ -2,55 +2,2096 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Login | METI</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>METI | Login</title>
+
+
+    <style>
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            min-height: 100%;
+            scroll-behavior: smooth;
+
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+
+            scrollbar-width: thin;
+            scrollbar-color: #0a9b91 #edf8f6;
+        }
+
+
+        body {
+            min-height: 100vh;
+            height: auto !important;
+
+            color: #09243a;
+
+            background: #f4fbf9;
+
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+
+            font-family:
+                "Inter",
+                "Segoe UI",
+                Arial,
+                sans-serif;
+        }
+
+
+        body.login-page {
+            min-height: 100vh !important;
+            height: auto !important;
+
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+
+            position: relative;
+        }
+
+
+        /* =========================================================
+           SCROLLBAR
+        ========================================================= */
+
+        body.login-page::-webkit-scrollbar {
+            width: 9px;
+        }
+
+        body.login-page::-webkit-scrollbar-track {
+            background: #edf8f6;
+        }
+
+        body.login-page::-webkit-scrollbar-thumb {
+            background: #0a9b91;
+            border-radius: 10px;
+        }
+
+        body.login-page::-webkit-scrollbar-thumb:hover {
+            background: #07867f;
+        }
+
+
+        /* =========================================================
+           PAGE BACKGROUND
+        ========================================================= */
+
+        .login-page {
+            position: relative;
+
+            overflow-x: hidden !important;
+            overflow-y: visible !important;
+
+            background:
+
+                radial-gradient(
+                    circle at 76% 33%,
+                    rgba(21, 190, 180, 0.17) 0%,
+                    rgba(21, 190, 180, 0.08) 18%,
+                    transparent 42%
+                ),
+
+                radial-gradient(
+                    circle at 32% 72%,
+                    rgba(32, 181, 171, 0.09) 0%,
+                    transparent 36%
+                ),
+
+                linear-gradient(
+                    135deg,
+                    #f8fcfb 0%,
+                    #eef9f7 48%,
+                    #f9fcfb 100%
+                );
+        }
+
+
+        /* =========================================================
+           BACKGROUND BUBBLES
+        ========================================================= */
+
+        .login-bubble-teal {
+            position: absolute;
+
+            width: 58px;
+            height: 58px;
+
+            top: 88px;
+            left: 29%;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle at 35% 30%,
+                    rgba(255,255,255,.55),
+                    transparent 28%
+                ),
+
+                linear-gradient(
+                    145deg,
+                    #68d5cc,
+                    #1aaea5
+                );
+
+            box-shadow:
+                0 12px 25px rgba(5,151,142,.22);
+
+            animation:
+                floatBubble 5s ease-in-out infinite;
+
+            z-index: 0;
+        }
+
+
+        .login-bubble-orange {
+            position: absolute;
+
+            width: 47px;
+            height: 47px;
+
+            top: 170px;
+            right: 17%;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle at 35% 30%,
+                    #ffd98a,
+                    #ffb83e
+                );
+
+            opacity: .82;
+
+            box-shadow:
+                0 8px 22px rgba(244,162,97,.22);
+
+            animation:
+                floatBubbleSmall 6s ease-in-out infinite;
+
+            z-index: 0;
+        }
+
+
+        .login-bubble-purple {
+            position: absolute;
+
+            width: 45px;
+            height: 45px;
+
+            bottom: 100px;
+            left: 16.5%;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle at 35% 30%,
+                    #e6d1ff,
+                    #a984df
+                );
+
+            opacity: .52;
+
+            animation:
+                floatBubble 7s ease-in-out infinite;
+
+            z-index: 0;
+        }
+
+
+        /* =========================================================
+           LARGE PURPLE GLOW
+        ========================================================= */
+
+        .login-bubble-purple::after {
+            content: "";
+
+            position: absolute;
+
+            width: 95px;
+            height: 95px;
+
+            left: -115px;
+            bottom: 35px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle,
+                    rgba(197,164,246,.45),
+                    rgba(196,164,246,.03)
+                );
+
+            filter: blur(2px);
+        }
+
+
+        /* =========================================================
+           RIGHT GLOW
+        ========================================================= */
+
+        .login-right-glow {
+            position: absolute;
+
+            width: 460px;
+            height: 460px;
+
+            top: 80px;
+            right: -170px;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(31,193,180,.25),
+                    rgba(31,193,180,.08) 42%,
+                    transparent 72%
+                );
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        /* =========================================================
+           RIGHT RINGS
+        ========================================================= */
+
+        .login-right-ring {
+            position: absolute;
+
+            width: 430px;
+            height: 430px;
+
+            top: 30px;
+            right: -240px;
+
+            border:
+                1.3px solid
+                rgba(12,173,163,.28);
+
+            border-radius: 50%;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        .login-right-ring::after {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+            height: 500px;
+
+            top: 45px;
+            left: -45px;
+
+            border:
+                1px solid
+                rgba(12,173,163,.10);
+
+            border-radius: 50%;
+        }
+
+
+        .login-right-ring::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 12px;
+
+            border-radius: 50%;
+
+            border:
+                10px solid
+                rgba(255,255,255,.42);
+
+            border-left-color:
+                transparent;
+
+            border-bottom-color:
+                transparent;
+        }
+
+
+        /* =========================================================
+           LEFT CURVE
+        ========================================================= */
+
+        .login-curve {
+            position: absolute;
+
+            width: 720px;
+            height: 210px;
+
+            left: -270px;
+            bottom: 35px;
+
+            border:
+                1.3px solid
+                rgba(11,168,158,.25);
+
+            border-radius: 50%;
+
+            transform:
+                rotate(-2deg);
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        /* =========================================================
+           NAVBAR
+           MATCHED WITH INDEX.HTML
+        ========================================================= */
+
+        .login-navbar {
+
+            position: relative;
+
+            z-index: 20;
+
+            width: 100%;
+
+            height: 74px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding:
+                0
+                clamp(28px, 7.8vw, 140px);
+
+            background:
+                rgba(255,255,255,.97);
+
+            border-bottom:
+                1px solid
+                rgba(15,150,140,.06);
+
+            box-shadow:
+                0 4px 20px
+                rgba(8,58,72,.035);
+
+            backdrop-filter:
+                blur(12px);
+        }
+
+
+        /* =========================================================
+           METI LOGO
+           SAME AS INDEX.HTML
+        ========================================================= */
+
+        .logo-area {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            flex-shrink: 0;
+
+            height: 100%;
+
+            text-decoration: none;
+
+            cursor: pointer;
+        }
+
+
+        .meti-logo {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-start;
+
+            gap: 10px;
+
+            flex-shrink: 0;
+        }
+
+
+        /* Colorful METI mark */
+
+        .meti-mark {
+
+            width: 55px;
+            height: 55px;
+
+            display: block;
+
+            object-fit: contain;
+
+            flex-shrink: 0;
+        }
+
+
+        /* METI text */
+
+        .meti-text {
+
+            color: #0b4b5a;
+
+            font-size: 32px;
+
+            line-height: 1;
+
+            font-weight: 800;
+
+            letter-spacing: -1.2px;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================================================
+           NAV RIGHT
+        ========================================================= */
+
+        .nav-right {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: flex-end;
+
+            gap: 25px;
+
+            flex-shrink: 0;
+
+            margin-left: auto;
+        }
+
+
+        .nav-question {
+
+            color: #416673;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            white-space: nowrap;
+        }
+
+
+        .create-account-btn {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 156px;
+
+            height: 44px;
+
+            padding:
+                0 22px;
+
+            border-radius: 30px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #0b958b,
+                    #078a82
+                );
+
+            color: #ffffff !important;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            white-space: nowrap;
+
+            box-shadow:
+
+                0 8px 20px
+                rgba(8,145,135,.18);
+
+            transition:
+
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+
+        .create-account-btn:hover {
+
+            transform:
+                translateY(-2px);
+
+            box-shadow:
+
+                0 12px 25px
+                rgba(8,145,135,.25);
+        }
+
+
+        /* =========================================================
+           MAIN
+        ========================================================= */
+
+        .auth-container {
+
+            position: relative;
+
+            z-index: 5;
+
+            min-height:
+                calc(100vh - 74px);
+
+            height: auto;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding:
+
+                55px
+
+                clamp(28px,7.8vw,140px)
+
+                105px;
+
+            overflow: visible !important;
+        }
+
+
+        .auth-wrapper {
+
+            width: 100%;
+
+            max-width: 1120px;
+
+            display: grid;
+
+            grid-template-columns:
+
+                minmax(0,1.05fr)
+
+                minmax(400px,.75fr);
+
+            gap:
+
+                clamp(55px,7vw,105px);
+
+            align-items: center;
+
+            height: auto !important;
+        }
+
+
+        /* =========================================================
+           LEFT INTRO
+        ========================================================= */
+
+        .auth-intro {
+
+            max-width: 690px;
+
+            height: auto;
+
+            position: relative;
+
+            z-index: 5;
+
+            animation:
+                introAppear .8s ease-out both;
+        }
+
+
+        @keyframes introAppear {
+
+            from {
+                opacity: 0;
+                transform:
+                    translateY(22px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0);
+            }
+        }
+
+
+        /* =========================================================
+           EYEBROW
+        ========================================================= */
+
+        .intro-eyebrow {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 9px;
+
+            padding:
+                9px 15px;
+
+            border:
+                1px solid
+                rgba(15,170,157,.20);
+
+            border-radius: 25px;
+
+            background:
+                rgba(255,255,255,.40);
+
+            color: #078c84;
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1.45px;
+
+            box-shadow:
+                0 5px 18px
+                rgba(10,150,140,.04);
+        }
+
+
+        .intro-eyebrow::before {
+
+            content: "";
+
+            width: 9px;
+            height: 9px;
+
+            border-radius: 50%;
+
+            background: #2cb8ac;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(44,184,172,.08);
+        }
+
+
+        /* =========================================================
+           HEADING
+        ========================================================= */
+
+        .auth-title {
+
+            margin-top: 24px;
+
+            font-size:
+                clamp(52px,4.7vw,72px);
+
+            line-height: .99;
+
+            letter-spacing: -3.5px;
+
+            font-weight: 800;
+
+            color: #09243a;
+        }
+
+
+        .auth-title .highlight {
+
+            display: block;
+
+            color: #07988d;
+
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           DESCRIPTION
+        ========================================================= */
+
+        .auth-description {
+
+            max-width: 620px;
+
+            margin-top: 27px;
+
+            color: #20566a;
+
+            font-size: 16px;
+
+            line-height: 1.65;
+
+            font-weight: 500;
+        }
+
+
+        /* =========================================================
+           FEATURE LIST
+        ========================================================= */
+
+        .feature-list {
+
+            margin-top: 31px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 11px;
+        }
+
+
+        .feature-item {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 15px;
+
+            padding:
+                13px 15px;
+
+            border-radius: 15px;
+
+            background:
+                rgba(255,255,255,.60);
+
+            border:
+                1px solid
+                rgba(255,255,255,.82);
+
+            box-shadow:
+                0 10px 30px
+                rgba(17,76,86,.035);
+
+            backdrop-filter:
+                blur(7px);
+
+            transition:
+
+                transform .25s ease,
+                box-shadow .25s ease,
+                background .25s ease;
+        }
+
+
+        .feature-item:hover {
+
+            transform:
+                translateX(5px);
+
+            background:
+                rgba(255,255,255,.84);
+
+            box-shadow:
+                0 13px 32px
+                rgba(17,76,86,.07);
+        }
+
+
+        .feature-number {
+
+            width: 42px;
+            height: 42px;
+
+            min-width: 42px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #e6fbf9,
+                    #d4f4f1
+                );
+
+            border:
+                1px solid
+                rgba(6,159,150,.22);
+
+            color: #078b83;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        .feature-item:nth-child(2)
+        .feature-number {
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #e8f7f5,
+                    #d9f1ef
+                );
+
+            color: #078b83;
+        }
+
+
+        .feature-item:nth-child(3)
+        .feature-number {
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    #eadbff,
+                    #e0d1f8
+                );
+
+            color: #7c42bd;
+
+            border-color:
+                rgba(124,66,189,.15);
+        }
+
+
+        .feature-content {
+
+            padding-top: 2px;
+
+            flex: 1;
+        }
+
+
+        .feature-content h4 {
+
+            color: #173b49;
+
+            font-size: 13px;
+
+            font-weight: 800;
+
+            margin-bottom: 4px;
+        }
+
+
+        .feature-content p {
+
+            color: #58747f;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+
+            font-weight: 500;
+        }
+
+
+        /* =========================================================
+           LOGIN CARD
+        ========================================================= */
+
+        .auth-card {
+
+            position: relative;
+
+            width: 100%;
+
+            height: auto !important;
+
+            max-height: none !important;
+
+            background:
+
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,.98),
+                    rgba(255,255,255,.94)
+                );
+
+            border-radius: 22px;
+
+            padding:
+                35px
+                38px
+                31px;
+
+            border:
+                1px solid
+                rgba(11,79,89,.09);
+
+            box-shadow:
+
+                0 25px 65px
+                rgba(8,67,78,.10),
+
+                0 5px 20px
+                rgba(8,67,78,.05);
+
+            overflow: hidden;
+
+            animation:
+                cardAppear .9s ease-out .1s both;
+        }
+
+
+        @keyframes cardAppear {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    translateY(25px)
+                    scale(.98);
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    translateY(0)
+                    scale(1);
+            }
+        }
+
+
+        .auth-card::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            left: 32px;
+            right: 32px;
+
+            height: 3px;
+
+            border-radius:
+                0 0 10px 10px;
+
+            background:
+
+                linear-gradient(
+                    90deg,
+                    #079b91,
+                    #28b9af,
+                    #079b91
+                );
+        }
+
+
+        .auth-card::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            top: -110px;
+            right: -90px;
+
+            border-radius: 50%;
+
+            background:
+
+                radial-gradient(
+                    circle,
+                    rgba(10,170,160,.11),
+                    transparent 70%
+                );
+
+            pointer-events: none;
+        }
+
+
+        /* =========================================================
+           CARD ICON
+        ========================================================= */
+
+        .auth-icon {
+
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #079f93,
+                    #13b8a9
+                );
+
+            color: #ffffff;
+
+            font-size: 26px;
+
+            font-weight: 500;
+
+            box-shadow:
+
+                0 10px 20px
+                rgba(7,159,147,.18);
+
+            margin-bottom: 18px;
+        }
+
+
+        .auth-card h2 {
+
+            color: #0a263b;
+
+            font-size: 31px;
+
+            line-height: 1.12;
+
+            letter-spacing: -1.4px;
+
+            font-weight: 800;
+        }
+
+
+        .auth-card-subtitle {
+
+            margin-top: 9px;
+
+            color: #527084;
+
+            font-size: 13px;
+
+            line-height: 1.55;
+        }
+
+
+        /* =========================================================
+           FORM
+        ========================================================= */
+
+        .login-form {
+
+            margin-top: 27px;
+        }
+
+
+        .form-group {
+
+            margin-bottom: 18px;
+        }
+
+
+        .form-label-row {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 7px;
+        }
+
+
+        .form-label {
+
+            color: #183d4b;
+
+            font-size: 12px;
+
+            font-weight: 800;
+        }
+
+
+        .password-hint {
+
+            color: #8197a0;
+
+            font-size: 10px;
+
+            font-weight: 600;
+        }
+
+
+        .form-input {
+
+            width: 100%;
+
+            height: 52px;
+
+            padding:
+                0 15px;
+
+            border:
+                1px solid
+                #cbdde1;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            background: #edf5ff;
+
+            color: #172f3d;
+
+            font-family: inherit;
+
+            font-size: 13px;
+
+            transition:
+
+                border-color .2s ease,
+                box-shadow .2s ease,
+                background .2s ease;
+        }
+
+
+        .form-input:focus {
+
+            border-color:
+                #12a39a;
+
+            background:
+                #ffffff;
+
+            box-shadow:
+
+                0 0 0 4px
+                rgba(11,159,150,.10);
+        }
+
+
+        .form-input::placeholder {
+
+            color: #8da1a8;
+        }
+
+
+        /* =========================================================
+           SIGN IN BUTTON
+        ========================================================= */
+
+        .signin-btn {
+
+            width: 100%;
+
+            height: 52px;
+
+            margin-top: 2px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background:
+
+                linear-gradient(
+                    135deg,
+                    #0a9e92,
+                    #08b8a7
+                );
+
+            color: #ffffff;
+
+            font-family: inherit;
+
+            font-size: 14px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+
+                0 12px 27px
+                rgba(8,150,141,.20);
+
+            transition:
+
+                transform .2s ease,
+                box-shadow .2s ease,
+                filter .2s ease;
+        }
+
+
+        .signin-btn:hover {
+
+            transform:
+                translateY(-2px);
+
+            filter:
+                brightness(.98);
+
+            box-shadow:
+
+                0 16px 31px
+                rgba(8,150,141,.27);
+        }
+
+
+        .signin-btn:active {
+
+            transform:
+                translateY(0);
+        }
+
+
+        /* =========================================================
+           ERROR / SUCCESS
+        ========================================================= */
+
+        .error-message,
+        .success-message {
+
+            display: none;
+
+            margin-bottom: 15px;
+
+            padding:
+                11px 13px;
+
+            border-radius: 10px;
+
+            font-size: 12px;
+
+            line-height: 1.45;
+        }
+
+
+        .error-message {
+
+            color: #a33b3b;
+
+            background: #fff2f2;
+
+            border:
+                1px solid
+                #f1d1d1;
+        }
+
+
+        .success-message {
+
+            color: #177363;
+
+            background: #edfbf7;
+
+            border:
+                1px solid
+                #c6eee3;
+        }
+
+
+        /* =========================================================
+           CARD FOOTER
+        ========================================================= */
+
+        .auth-footer {
+
+            margin-top: 21px;
+
+            text-align: center;
+
+            color: #6d8790;
+
+            font-size: 11px;
+        }
+
+
+        .auth-footer a {
+
+            color: #078f87;
+
+            font-weight: 800;
+
+            text-decoration: none;
+        }
+
+
+        .auth-footer a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* =========================================================
+           BOTTOM WAVES
+        ========================================================= */
+
+        .login-waves {
+
+            position: absolute;
+
+            left: 0;
+            right: 0;
+
+            bottom: 0;
+
+            height: 190px;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 1;
+        }
+
+
+        .login-wave {
+
+            position: absolute;
+
+            width: 120%;
+
+            height: 175px;
+
+            left: -10%;
+
+            bottom: -125px;
+
+            border-radius:
+                50% 50% 0 0;
+
+            background:
+
+                linear-gradient(
+                    100deg,
+                    rgba(113,222,207,.30),
+                    rgba(92,209,194,.08)
+                );
+
+            border-top:
+                1px solid
+                rgba(11,159,149,.11);
+
+            transform:
+                rotate(-2deg);
+        }
+
+
+        .login-wave.wave-two {
+
+            bottom: -105px;
+
+            background:
+                rgba(255,255,255,.72);
+
+            border-top-color:
+                rgba(17,153,144,.07);
+
+            transform:
+                rotate(3deg)
+                translateX(-4%);
+        }
+
+
+        /* =========================================================
+           ANIMATIONS
+        ========================================================= */
+
+        @keyframes floatBubble {
+
+            0%,
+            100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-13px);
+            }
+        }
+
+
+        @keyframes floatBubbleSmall {
+
+            0%,
+            100% {
+
+                transform:
+                    translateY(0)
+                    rotate(0deg);
+            }
+
+            50% {
+
+                transform:
+                    translateY(-10px)
+                    rotate(8deg);
+            }
+        }
+
+
+        /* =========================================================
+           1150px
+        ========================================================= */
+
+        @media (max-width: 1150px) {
+
+            .login-navbar {
+
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+
+            .auth-container {
+
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+
+            .auth-wrapper {
+
+                gap: 55px;
+            }
+        }
+
+
+        /* =========================================================
+           1050px
+        ========================================================= */
+
+        @media (max-width: 1050px) {
+
+            .auth-wrapper {
+
+                grid-template-columns:
+
+                    minmax(0,1fr)
+                    minmax(370px,440px);
+
+                gap: 50px;
+            }
+
+
+            .auth-title {
+
+                font-size:
+                    clamp(
+                        48px,
+                        5.5vw,
+                        62px
+                    );
+            }
+
+
+            .auth-card {
+
+                padding:
+                    32px 34px 29px;
+            }
+        }
+
+
+        /* =========================================================
+           900px
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .login-navbar {
+
+                height: 70px;
+
+                padding:
+                    0 30px;
+            }
+
+
+            .nav-right {
+
+                gap: 20px;
+            }
+
+
+            .create-account-btn {
+
+                min-width: 135px;
+
+                height: 45px;
+            }
+
+
+            .auth-container {
+
+                min-height: auto !important;
+
+                padding:
+                    55px
+                    30px
+                    110px;
+            }
+
+
+            .auth-wrapper {
+
+                display: flex !important;
+
+                flex-direction: column !important;
+
+                align-items: stretch;
+
+                gap: 55px;
+
+                max-width: 700px;
+
+                height: auto !important;
+            }
+
+
+            .auth-intro {
+
+                width: 100% !important;
+
+                max-width: none;
+            }
+
+
+            .auth-card {
+
+                width: 100% !important;
+
+                max-width: 500px;
+
+                margin:
+                    0 auto;
+            }
+
+
+            .login-bubble-teal {
+
+                left: 72%;
+            }
+
+
+            .login-right-glow {
+
+                right: -250px;
+            }
+        }
+
+
+        /* =========================================================
+           600px MOBILE
+        ========================================================= */
+
+        @media (max-width: 600px) {
+
+            .login-navbar {
+
+                height: 65px;
+
+                padding:
+                    0 20px;
+            }
+
+
+            /* INDEX-LIKE METI LOGO */
+
+            .meti-mark {
+
+                width: 48px;
+                height: 48px;
+            }
+
+
+            .meti-text {
+
+                font-size: 28px;
+
+                letter-spacing:
+                    -1px;
+            }
+
+
+            .meti-logo {
+
+                gap: 8px;
+            }
+
+
+            .nav-question {
+
+                display: none;
+            }
+
+
+            .create-account-btn {
+
+                min-width: 110px;
+
+                height: 42px;
+
+                padding:
+                    0 17px;
+
+                font-size: 12px;
+            }
+
+
+            .auth-container {
+
+                padding:
+                    45px
+                    22px
+                    110px;
+            }
+
+
+            .auth-wrapper {
+
+                gap: 42px;
+            }
+
+
+            .intro-eyebrow {
+
+                font-size: 11px;
+
+                letter-spacing: 1.1px;
+
+                padding:
+                    8px 13px;
+            }
+
+
+            .auth-title {
+
+                margin-top: 21px;
+
+                font-size:
+                    clamp(
+                        46px,
+                        13vw,
+                        62px
+                    );
+
+                line-height: 1;
+
+                letter-spacing:
+                    -2.7px;
+            }
+
+
+            .auth-description {
+
+                margin-top: 22px;
+
+                font-size: 15px;
+
+                line-height: 1.65;
+            }
+
+
+            .feature-list {
+
+                margin-top: 27px;
+            }
+
+
+            .feature-item {
+
+                padding:
+                    12px;
+
+                gap: 11px;
+            }
+
+
+            .feature-number {
+
+                width: 37px;
+                height: 37px;
+
+                min-width: 37px;
+            }
+
+
+            .feature-content h4 {
+
+                font-size: 12px;
+            }
+
+
+            .feature-content p {
+
+                font-size: 11px;
+            }
+
+
+            .auth-card {
+
+                padding:
+                    30px
+                    24px
+                    26px;
+
+                border-radius: 19px;
+            }
+
+
+            .auth-card::before {
+
+                left: 25px;
+                right: 25px;
+            }
+
+
+            .auth-icon {
+
+                width: 52px;
+                height: 52px;
+
+                border-radius: 14px;
+
+                font-size: 23px;
+            }
+
+
+            .auth-card h2 {
+
+                font-size: 28px;
+            }
+
+
+            .login-form {
+
+                margin-top: 23px;
+            }
+
+
+            .form-input {
+
+                height: 50px;
+            }
+
+
+            .signin-btn {
+
+                height: 50px;
+            }
+
+
+            .login-waves {
+
+                height: 130px;
+            }
+
+
+            .login-right-ring {
+
+                right: -280px;
+            }
+
+
+            .login-right-glow {
+
+                right: -250px;
+            }
+        }
+
+
+        /* =========================================================
+           400px SMALL MOBILE
+        ========================================================= */
+
+        @media (max-width: 400px) {
+
+            .login-navbar {
+
+                padding:
+                    0 14px;
+            }
+
+
+            /* SMALL METI LOGO */
+
+            .meti-mark {
+
+                width: 44px;
+                height: 44px;
+            }
+
+
+            .meti-text {
+
+                font-size: 26px;
+
+                letter-spacing:
+                    -.9px;
+            }
+
+
+            .meti-logo {
+
+                gap: 7px;
+            }
+
+
+            .create-account-btn {
+
+                min-width: 103px;
+
+                height: 40px;
+
+                padding:
+                    0 12px;
+
+                font-size: 10px;
+            }
+
+
+            .auth-container {
+
+                padding-left: 14px;
+
+                padding-right: 14px;
+            }
+
+
+            .auth-title {
+
+                font-size: 42px;
+
+                letter-spacing:
+                    -2.2px;
+            }
+
+
+            .auth-card {
+
+                padding:
+                    27px
+                    18px
+                    23px;
+            }
+
+
+            .auth-card h2 {
+
+                font-size: 26px;
+            }
+
+
+            .auth-description {
+
+                font-size: 14px;
+            }
+        }
+
+
+        /* =========================================================
+           EXTRA SCROLL SAFETY
+        ========================================================= */
+
+        body.auth-page.login-page,
+        body.auth-page.login-page .auth-container {
+
+            overflow-y: visible !important;
+        }
+
+
+        body.auth-page.login-page {
+
+            overflow-x: hidden !important;
+            overflow-y: auto !important;
+
+            min-height: 100vh !important;
+            height: auto !important;
+        }
+
+
+        body.auth-page.login-page .auth-wrapper {
+
+            min-height: 0 !important;
+
+            height: auto !important;
+        }
+
+
+    </style>
+
 </head>
+
 
 <body class="auth-page login-page">
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
 
-        <a href="index.html" class="auth-logo">
-            METI
+    <!-- =========================================================
+         BACKGROUND DECORATIONS
+    ========================================================= -->
+
+    <div class="login-bubble-teal"></div>
+
+    <div class="login-bubble-orange"></div>
+
+    <div class="login-bubble-purple"></div>
+
+    <div class="login-right-glow"></div>
+
+    <div class="login-right-ring"></div>
+
+    <div class="login-curve"></div>
+
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================= -->
+
+    <header class="login-navbar">
+
+
+        <!-- METI LOGO -->
+
+        <a
+            href="index.html"
+            class="logo-area"
+            aria-label="METI Home"
+        >
+
+            <div class="meti-logo">
+
+                <!-- Only logo MARK -->
+                <img
+                    src="METI_logo_exact.png"
+                    alt="METI Logo"
+                    class="meti-mark"
+                >
+
+                <!-- METI TEXT -->
+                <span class="meti-text">
+                    METI
+                </span>
+
+            </div>
+
         </a>
 
-        <div class="nav-links">
 
-            <span class="auth-question">
+        <!-- RIGHT NAVIGATION -->
+
+        <div class="nav-right">
+
+            <span class="nav-question">
                 Don't have an account?
             </span>
 
-            <a href="register.html" class="nav-button">
+
+            <a
+                href="register.html"
+                class="create-account-btn"
+            >
                 Create Account
             </a>
 
         </div>
 
-    </nav>
+    </header>
 
 
-    <!-- MAIN -->
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================= -->
+
     <main class="auth-container">
+
 
         <div class="auth-wrapper">
 
 
-            <!-- LEFT SIDE -->
+            <!-- =================================================
+                 LEFT SIDE
+            ================================================= -->
+
             <section class="auth-intro">
 
-                <p class="eyebrow">
-                    WELCOME BACK
-                </p>
 
-                <h1>
-                    Continue your<br>
-                    <span>consulting journey.</span>
+                <!-- EYEBROW -->
+
+                <div class="intro-eyebrow">
+                    WELCOME BACK
+                </div>
+
+
+                <!-- HEADING -->
+
+                <h1 class="auth-title">
+
+                    Continue your
+
+                    <span class="highlight">
+                        Consulting
+                    </span>
+
+                    <span class="highlight">
+                        Journey.
+                    </span>
+
                 </h1>
+
+
+                <!-- DESCRIPTION -->
 
                 <p class="auth-description">
 
@@ -61,24 +2102,31 @@
                 </p>
 
 
-                <div class="auth-features">
+                <!-- =================================================
+                     FEATURES
+                ================================================= -->
 
-                    <div class="auth-feature">
+                <div class="feature-list">
+
+
+                    <!-- FEATURE 01 -->
+
+                    <div class="feature-item">
 
                         <div class="feature-number">
                             01
                         </div>
 
-                        <div>
 
-                            <strong>
+                        <div class="feature-content">
+
+                            <h4>
                                 Evidence-Based Assessment
-                            </strong>
+                            </h4>
 
                             <p>
-                                Understand your demonstrated
-                                capabilities through structured
-                                assessment evidence.
+                                Understand your demonstrated capabilities
+                                through structured assessment evidence.
                             </p>
 
                         </div>
@@ -86,22 +2134,24 @@
                     </div>
 
 
-                    <div class="auth-feature">
+                    <!-- FEATURE 02 -->
+
+                    <div class="feature-item">
 
                         <div class="feature-number">
                             02
                         </div>
 
-                        <div>
 
-                            <strong>
+                        <div class="feature-content">
+
+                            <h4>
                                 Adaptive Experience
-                            </strong>
+                            </h4>
 
                             <p>
-                                Your assessment adapts based on
-                                the evidence gathered from your
-                                responses.
+                                Your assessment adapts based on the evidence
+                                gathered from your responses.
                             </p>
 
                         </div>
@@ -109,68 +2159,95 @@
                     </div>
 
 
-                    <div class="auth-feature">
+                    <!-- FEATURE 03 -->
+
+                    <div class="feature-item">
 
                         <div class="feature-number">
                             03
                         </div>
 
-                        <div>
 
-                            <strong>
+                        <div class="feature-content">
+
+                            <h4>
                                 Development Insights
-                            </strong>
+                            </h4>
 
                             <p>
-                                Discover strengths, development
-                                gaps and your recommended
-                                growth pathway.
+                                Discover development areas and build a
+                                pathway toward enterprise consulting.
                             </p>
 
                         </div>
 
                     </div>
+
 
                 </div>
 
             </section>
 
 
+            <!-- =================================================
+                 LOGIN CARD
+            ================================================= -->
 
-            <!-- LOGIN CARD -->
             <section class="auth-card login-card">
 
-                <div class="auth-card-header">
 
-                    <div class="auth-icon">
-                        →
-                    </div>
+                <!-- ICON -->
 
-                    <h2>
-                        Welcome back
-                    </h2>
-
-                    <p>
-                        Sign in to continue your journey.
-                    </p>
-
+                <div class="auth-icon">
+                    →
                 </div>
 
 
-                <form id="loginForm">
+                <!-- TITLE -->
+
+                <h2>
+                    Welcome back
+                </h2>
+
+
+                <p class="auth-card-subtitle">
+                    Sign in to continue your journey.
+                </p>
+
+
+                <!-- =================================================
+                     LOGIN FORM
+                ================================================= -->
+
+                <form
+                    id="loginForm"
+                    class="login-form"
+                >
 
 
                     <!-- EMAIL -->
+
                     <div class="form-group">
 
-                        <label for="loginEmail">
-                            Email Address
-                        </label>
+                        <div class="form-label-row">
+
+                            <label
+                                for="email"
+                                class="form-label"
+                            >
+                                Email Address
+                            </label>
+
+                        </div>
+
 
                         <input
                             type="email"
-                            id="loginEmail"
-                            placeholder="Enter your email address"
+                            id="email"
+                            name="email"
+                            class="form-input"
+                            placeholder="Enter your email"
+                            autocomplete="email"
                             required
                         >
 
@@ -178,13 +2255,18 @@
 
 
                     <!-- PASSWORD -->
+
                     <div class="form-group">
 
-                        <div class="password-label-row">
+                        <div class="form-label-row">
 
-                            <label for="loginPassword">
+                            <label
+                                for="password"
+                                class="form-label"
+                            >
                                 Password
                             </label>
+
 
                             <span class="password-hint">
                                 Minimum 6 characters
@@ -192,10 +2274,15 @@
 
                         </div>
 
+
                         <input
                             type="password"
-                            id="loginPassword"
+                            id="password"
+                            name="password"
+                            class="form-input"
                             placeholder="Enter your password"
+                            autocomplete="current-password"
+                            minlength="6"
                             required
                         >
 
@@ -203,31 +2290,38 @@
 
 
                     <!-- ERROR -->
+
                     <div
-                        id="loginError"
-                        class="form-message error-message"
+                        id="errorMessage"
+                        class="error-message"
                     ></div>
 
 
                     <!-- SUCCESS -->
+
                     <div
-                        id="loginSuccess"
-                        class="form-message success-message"
+                        id="successMessage"
+                        class="success-message"
                     ></div>
 
 
-                    <!-- BUTTON -->
+                    <!-- SIGN IN BUTTON -->
+
                     <button
                         type="submit"
-                        class="auth-submit"
+                        class="signin-btn"
+                        id="signinBtn"
                     >
                         Sign In →
                     </button>
 
+
                 </form>
 
 
-                <p class="auth-footer">
+                <!-- FOOTER -->
+
+                <div class="auth-footer">
 
                     Don't have an account?
 
@@ -235,19 +2329,38 @@
                         Create one
                     </a>
 
-                </p>
+                </div>
+
 
             </section>
+
 
         </div>
 
     </main>
 
 
-    <!-- SUPABASE -->
+    <!-- =========================================================
+         BOTTOM WAVES
+    ========================================================= -->
+
+    <div class="login-waves">
+
+        <div class="login-wave"></div>
+
+        <div class="login-wave wave-two"></div>
+
+    </div>
+
+
+    <!-- =========================================================
+         SUPABASE
+    ========================================================= -->
+
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
     <script src="../script.js"></script>
+
 
 </body>
 

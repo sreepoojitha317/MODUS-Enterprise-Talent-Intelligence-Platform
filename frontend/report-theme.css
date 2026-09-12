@@ -1,0 +1,112 @@
+/* =========================================================
+   METI REPORT THEME — MATCHES THE APPLICATION VISUAL SYSTEM
+   Print-safe; no dependency on application functionality.
+========================================================= */
+
+:root {
+    --meti-ink: #17343a;
+    --meti-ink-soft: #526e74;
+    --meti-teal: #087f7b;
+    --meti-teal-2: #10a7a0;
+    --meti-blue: #2c67d8;
+    --meti-green: #48b86b;
+    --meti-orange: #f0a33a;
+    --meti-pink: #d95aa6;
+    --meti-border: #dcebea;
+}
+
+body {
+    background: #eef6f5 !important;
+    color: var(--meti-ink) !important;
+}
+
+.report-page {
+    border: 1px solid var(--meti-border);
+    box-shadow: 0 18px 55px rgba(18,65,70,.12) !important;
+}
+
+.report-header {
+    border-bottom-color: var(--meti-border) !important;
+}
+
+.report-logo {
+    position: relative;
+    color: transparent !important;
+    background: #fff !important;
+    border: 1px solid var(--meti-border) !important;
+    overflow: visible;
+}
+
+.report-logo::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    border-radius: 50%;
+    background: conic-gradient(
+        from 0deg,
+        var(--meti-teal) 0deg 72deg,
+        var(--meti-blue) 72deg 144deg,
+        var(--meti-pink) 144deg 216deg,
+        var(--meti-orange) 216deg 288deg,
+        var(--meti-green) 288deg 360deg
+    );
+    animation: reportLogoSpin 12s linear infinite;
+}
+
+.report-logo::after {
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 50%;
+    background: #fff;
+}
+
+@keyframes reportLogoSpin { to { transform: rotate(360deg); } }
+
+.report-brand h1 { color: var(--meti-ink) !important; }
+.report-brand p,
+#reportDate { color: var(--meti-ink-soft) !important; }
+.report-label,
+.section-eyebrow { color: var(--meti-teal) !important; }
+
+.metric-card,
+.candidate-section,
+.competency-section,
+.overall-section,
+.recommendation-section,
+.report-chart-box,
+.competency-chart-box {
+    border-color: var(--meti-border) !important;
+}
+
+.metric-progress {
+    background: linear-gradient(90deg,var(--meti-teal),var(--meti-blue)) !important;
+}
+
+.overall-score { color: var(--meti-teal) !important; }
+
+.recommendation-section {
+    background: #edf8f6 !important;
+    border-left-color: var(--meti-teal) !important;
+}
+
+.list-marker { background: var(--meti-teal) !important; }
+
+.report-footer { border-top-color: var(--meti-border) !important; }
+
+@media print {
+    body { background: #fff !important; }
+    .report-page {
+        border: 0;
+        box-shadow: none !important;
+        margin: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .report-logo::before { animation: none; }
+}

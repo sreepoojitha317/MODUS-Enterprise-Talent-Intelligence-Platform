@@ -20,6 +20,266 @@
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+    <link rel="stylesheet"
+          href="theme.css">
+
+    <link rel="stylesheet"
+          href="report-theme.css">
+
+
+    <!-- =========================================
+         METI REAL LOGO OVERRIDE
+    ========================================== -->
+
+    <style>
+
+        /* -----------------------------------------
+           REAL METI LOGO
+           Uses ONLY METI_logo_exact.png
+        ----------------------------------------- */
+
+        .report-brand {
+            display: flex !important;
+            align-items: center !important;
+            gap: 10px !important;
+        }
+
+
+        .report-brand .auth-logo {
+            display: inline-flex !important;
+            align-items: center !important;
+            text-decoration: none !important;
+            height: 61px !important;
+            flex-shrink: 0 !important;
+            position: relative !important;
+        }
+
+
+        .report-brand .meti-logo {
+            display: flex !important;
+            align-items: center !important;
+            justify-content: flex-start !important;
+            gap: 6px !important;
+            height: 61px !important;
+            flex-shrink: 0 !important;
+        }
+
+
+        /*
+           The original METI PNG is 171 x 61.
+           We visually crop it so only the
+           circular METI mark is displayed.
+        */
+
+        .report-brand .meti-mark-wrap {
+            width: 66px !important;
+            height: 61px !important;
+
+            overflow: hidden !important;
+
+            position: relative !important;
+
+            display: block !important;
+
+            flex-shrink: 0 !important;
+        }
+
+
+        .report-brand .meti-mark {
+            position: absolute !important;
+
+            left: 0 !important;
+            top: 0 !important;
+
+            width: 171px !important;
+            height: 61px !important;
+
+            max-width: none !important;
+            max-height: none !important;
+
+            display: block !important;
+
+            object-fit: contain !important;
+            object-position: left center !important;
+
+            filter:
+                drop-shadow(
+                    0 3px 6px
+                    rgba(44,83,120,0.08)
+                ) !important;
+        }
+
+
+        /*
+           Separate METI text
+        */
+
+        .report-brand .meti-text {
+            display: inline-block !important;
+
+            color: #0b4b5a !important;
+
+            font-family:
+                "Manrope",
+                "DM Sans",
+                "Segoe UI",
+                Arial,
+                sans-serif !important;
+
+            font-size: 32px !important;
+
+            line-height: 1 !important;
+
+            font-weight: 800 !important;
+
+            letter-spacing: -1.2px !important;
+
+            white-space: nowrap !important;
+
+            transform: translateX(2px) !important;
+        }
+
+
+        /*
+           Disable any old CSS M/logo
+        */
+
+        .report-logo,
+        .report-logo::before,
+        .report-logo::after,
+        .brand-icon,
+        .brand-icon::before,
+        .brand-icon::after,
+        .report-brand::before,
+        .report-brand::after {
+            display: none !important;
+            content: none !important;
+            background: none !important;
+            box-shadow: none !important;
+        }
+
+
+        /*
+           Prevent old report-brand h1
+           from showing duplicate METI text
+        */
+
+        .report-brand > div:not(.auth-logo) h1 {
+            display: none !important;
+        }
+
+
+        .report-brand > div:not(.auth-logo) p {
+            display: none !important;
+        }
+
+
+        /*
+           Light professional report header
+        */
+
+        .report-header {
+            background:
+                rgba(255,255,255,0.96) !important;
+
+            border-bottom:
+                1px solid #e6eeee !important;
+
+            box-shadow:
+                0 8px 25px
+                rgba(28,65,78,0.05) !important;
+        }
+
+
+        .report-header-right {
+            color: #607681 !important;
+        }
+
+
+        .report-label {
+            color: #0a8f87 !important;
+        }
+
+
+        /*
+           Responsive logo
+        */
+
+        @media (max-width: 900px) {
+
+            .report-brand .meti-logo {
+                gap: 12px !important;
+            }
+
+            .report-brand .meti-mark-wrap {
+                width: 58px !important;
+                height: 56px !important;
+            }
+
+            .report-brand .meti-mark {
+                width: 157px !important;
+                height: 56px !important;
+            }
+
+            .report-brand .meti-text {
+                font-size: 29px !important;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .report-brand .meti-logo {
+                gap: 10px !important;
+            }
+
+            .report-brand .meti-mark-wrap {
+                width: 50px !important;
+                height: 49px !important;
+            }
+
+            .report-brand .meti-mark {
+                width: 137px !important;
+                height: 49px !important;
+            }
+
+            .report-brand .meti-text {
+                font-size: 26px !important;
+                letter-spacing: -0.8px !important;
+            }
+
+            .report-header-right {
+                font-size: 10px !important;
+            }
+
+        }
+
+
+        @media (max-width: 400px) {
+
+            .report-brand .meti-logo {
+                gap: 8px !important;
+            }
+
+            .report-brand .meti-mark-wrap {
+                width: 45px !important;
+                height: 44px !important;
+            }
+
+            .report-brand .meti-mark {
+                width: 124px !important;
+                height: 44px !important;
+            }
+
+            .report-brand .meti-text {
+                font-size: 24px !important;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
@@ -39,27 +299,46 @@
 
         <header class="report-header">
 
+
+            <!-- =================================
+                 SAME METI LOGO AS OTHER PAGES
+            ================================== -->
+
             <div class="report-brand">
 
-                <div class="report-logo">
-                    M
-                </div>
+                <a href="index.html"
+                   class="auth-logo"
+                   aria-label="METI Home">
 
-                <div>
+                    <div class="meti-logo">
 
-                    <h1>
-                        METI
-                    </h1>
+                        <div class="meti-mark-wrap">
 
-                    <p>
-                        Management Consulting
-                        Assessment Platform
-                    </p>
+                            <img
+                                src="METI_logo_exact.png"
+                                alt="METI Logo"
+                                class="meti-mark"
+                            >
 
-                </div>
+                        </div>
+
+
+                        <!-- Separate METI text -->
+
+                        <span class="meti-text">
+                            METI
+                        </span>
+
+                    </div>
+
+                </a>
 
             </div>
 
+
+            <!-- =================================
+                 REPORT HEADER INFORMATION
+            ================================== -->
 
             <div class="report-header-right">
 
@@ -544,6 +823,8 @@
 
         </section>
 
+
+
         <!-- =====================================
              REPORT FOOTER
         ====================================== -->
@@ -626,11 +907,15 @@
         const selectedUserId =
             urlParams.get("user_id");
 
+
         const registeredCandidateName =
             urlParams.get("candidate_name") || "";
 
+
         const registeredCandidateEmail =
             urlParams.get("candidate_email") || "";
+
+
 
         /* =========================================
            GLOBAL DATA
@@ -800,11 +1085,13 @@
                 }
 
 
+
                 /* =================================
                    LOAD PROFILE
                 ================================= */
 
                 loadProfileData();
+
 
 
                 /* =================================
@@ -931,7 +1218,7 @@
 
         /* =========================================
            RENDER REPORT
-        ========================================= */
+        ========================================== */
 
         function renderReport() {
 
@@ -999,18 +1286,24 @@
                PROFILE
             ================================= */
 
-           const candidateName =
+            const candidateName =
                 registeredCandidateName ||
                 profileData?.full_name ||
                 profileData?.name ||
-                localStorage.getItem("candidateName") ||
+                localStorage.getItem(
+                    "candidateName"
+                ) ||
                 "Candidate";
+
 
             const candidateEmail =
                 registeredCandidateEmail ||
                 profileData?.email ||
-                localStorage.getItem("candidateEmail") ||
+                localStorage.getItem(
+                    "candidateEmail"
+                ) ||
                 "candidate@example.com";
+
 
             document.getElementById(
                 "candidateName"

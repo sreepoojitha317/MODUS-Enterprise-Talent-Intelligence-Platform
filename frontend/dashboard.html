@@ -8,6 +8,9 @@
 
     <title>METI | Assessment Dashboard</title>
 
+    <!-- Shared Theme CSS -->
+    <link rel="stylesheet" href="theme.css">
+
     <!-- Dashboard CSS -->
     <link rel="stylesheet" href="dashboard.css">
 
@@ -40,15 +43,43 @@
 
         <div class="brand">
 
-            <div class="brand-icon">
-                M
-            </div>
+            <!-- REAL METI PNG LOGO -->
+            <a
+                href="index.html"
+                class="auth-logo"
+                aria-label="METI Home"
+            >
 
-            <div>
+                <div class="meti-logo">
 
-                <h2>
-                    METI
-                </h2>
+                    <!--
+                        Complete METI_logo_exact.png is used.
+                        Wrapper visually crops the circular mark.
+                    -->
+                    <div class="meti-mark-wrap">
+
+                        <img
+                            src="METI_logo_exact.png"
+                            alt="METI"
+                            class="meti-mark"
+                        >
+
+                    </div>
+
+
+                    <!-- Separate METI text -->
+                    <span class="meti-text">
+                        METI
+                    </span>
+
+                </div>
+
+            </a>
+
+
+            <!-- PLATFORM LABEL -->
+
+            <div class="brand-platform">
 
                 <span>
                     Assessment Platform
@@ -786,6 +817,7 @@
         </section>
 
 
+
         <!-- =========================
              ASSESSMENT HISTORY
         ========================== -->
@@ -872,6 +904,7 @@
                 Retake Assessment
 
             </button>
+
 
             <button
                 id="downloadReportBtn"
@@ -1299,7 +1332,7 @@
 
 
         /* ==========================================
-        LOAD PROFILE DATA
+           LOAD PROFILE DATA
         ========================================== */
 
         async function loadProfileData() {
@@ -1349,8 +1382,9 @@
                     await supabaseClient
                         .from("profiles")
                         .select("full_name, email")
-                        .eq("user_id",
-                         selectedUserId || user.id
+                        .eq(
+                            "user_id",
+                            selectedUserId || user.id
                         )
                         .maybeSingle();
 
@@ -1404,6 +1438,7 @@
             }
 
         }
+
 
 
         /* ==========================================
@@ -2612,6 +2647,8 @@
             retakeAssessment
         );
 
+
+
         // =========================================================
         // DOWNLOAD REPORT BUTTON
         // =========================================================
@@ -2619,10 +2656,12 @@
         const downloadReportBtn =
             document.getElementById("downloadReportBtn");
 
+
         console.log(
             "Download Report button found:",
             downloadReportBtn
         );
+
 
         if (downloadReportBtn) {
 
@@ -2722,6 +2761,7 @@
                             candidateName
                         );
 
+
                         console.log(
                             "Candidate Email:",
                             candidateEmail
@@ -2729,7 +2769,7 @@
 
 
                         // -------------------------------------------------
-                        // GET ATTEMPT ID FROM URL
+                        // GET ATTEMPT ID
                         // -------------------------------------------------
 
                         const urlParams =
@@ -2738,23 +2778,74 @@
                             );
 
 
-                        const attemptId =
+                        let attemptId =
                             urlParams.get("attempt_id");
+
+
+                        /*
+                         * If dashboard URL does not contain attempt_id,
+                         * get it from the latest assessment result stored
+                         * in localStorage.
+                         */
+
+                        if (!attemptId) {
+
+                            try {
+
+                                const storedResult =
+                                    localStorage.getItem(
+                                        "metiAssessmentResult"
+                                    );
+
+
+                                if (storedResult) {
+
+                                    const parsedResult =
+                                        JSON.parse(
+                                            storedResult
+                                        );
+
+
+                                    attemptId =
+                                        parsedResult.attempt_id ||
+                                        parsedResult.attemptId ||
+                                        parsedResult.id ||
+                                        null;
+
+                                }
+
+                            } catch (storageError) {
+
+                                console.error(
+                                    "Unable to read assessment result from localStorage:",
+                                    storageError
+                                );
+
+                            }
+
+                        }
 
 
                         if (!attemptId) {
 
                             throw new Error(
-                                "Assessment attempt not found."
+                                "Assessment attempt not found. Please complete an assessment first."
                             );
 
                         }
 
 
                         console.log(
+                            "Attempt ID used for report:",
+                            attemptId
+                        );
+
+
+                        console.log(
                             "Attempt ID:",
                             attemptId
                         );
+
 
                         console.log(
                             "User ID:",
@@ -2780,19 +2871,25 @@
 
                         const response =
                             await fetch(
+
                                 "http://127.0.0.1:8000/download-report" +
+
                                 `?attempt_id=${encodeURIComponent(
                                     attemptId
                                 )}` +
+
                                 `&user_id=${encodeURIComponent(
                                     user.id
                                 )}` +
+
                                 `&candidate_name=${encodeURIComponent(
                                     candidateName
                                 )}` +
+
                                 `&candidate_email=${encodeURIComponent(
                                     candidateEmail
                                 )}`
+
                             );
 
 
@@ -2805,16 +2902,19 @@
                             let errorMessage =
                                 "Unable to generate report.";
 
+
                             try {
 
                                 const errorData =
                                     await response.json();
+
 
                                 errorMessage =
                                     errorData.detail ||
                                     errorMessage;
 
                             } catch (e) {}
+
 
                             throw new Error(
                                 errorMessage
@@ -2922,7 +3022,6 @@
 
 
 
- 
         /* ==========================================
            LOAD DASHBOARD
         ========================================== */
