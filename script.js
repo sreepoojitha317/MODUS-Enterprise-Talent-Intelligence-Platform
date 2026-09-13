@@ -636,61 +636,135 @@ if (loginForm) {
 
         event.preventDefault();
 
+        // -------------------------------------------------
+        // GET LOGIN FIELDS
+        // -------------------------------------------------
+
         const email =
-            document.getElementById("loginEmail").value.trim();
+            document.getElementById("email").value.trim();
 
         const password =
-            document.getElementById("loginPassword").value;
+            document.getElementById("password").value;
 
         const errorBox =
-            document.getElementById("loginError");
+            document.getElementById("errorMessage");
 
         const successBox =
-            document.getElementById("loginSuccess");
+            document.getElementById("successMessage");
 
         const submitButton =
-            loginForm.querySelector(".auth-submit");
+            document.getElementById("signinBtn");
 
 
-        // Clear previous messages
-        errorBox.style.display = "none";
-        successBox.style.display = "none";
+        // -------------------------------------------------
+        // CLEAR PREVIOUS MESSAGES
+        // -------------------------------------------------
+
+        if (errorBox) {
+            errorBox.style.display = "none";
+            errorBox.textContent = "";
+        }
+
+        if (successBox) {
+            successBox.style.display = "none";
+            successBox.textContent = "";
+        }
 
 
-        // Disable button
-        submitButton.disabled = true;
-        submitButton.textContent = "Signing In...";
+        // -------------------------------------------------
+        // BASIC VALIDATION
+        // -------------------------------------------------
+
+        if (!email || !password) {
+
+            if (errorBox) {
+
+                errorBox.textContent =
+                    "Please enter your email and password.";
+
+                errorBox.style.display =
+                    "block";
+            }
+
+            return;
+        }
+
+
+        // -------------------------------------------------
+        // DISABLE BUTTON
+        // -------------------------------------------------
+
+        if (submitButton) {
+
+            submitButton.disabled =
+                true;
+
+            submitButton.textContent =
+                "Signing In...";
+        }
 
 
         try {
 
-            // Supabase Login
-            const { data, error } =
+            // -------------------------------------------------
+            // SUPABASE LOGIN
+            // -------------------------------------------------
+
+            const {
+                data,
+                error
+            } =
                 await supabaseClient.auth.signInWithPassword({
+
                     email: email,
+
                     password: password
+
                 });
 
 
+            // -------------------------------------------------
+            // CHECK LOGIN ERROR
+            // -------------------------------------------------
+
             if (error) {
+
                 throw error;
+
             }
 
 
-            console.log("Login successful:", data);
+            console.log(
+                "Login successful:",
+                data
+            );
 
 
-            successBox.textContent =
-                "Login successful! Redirecting...";
+            // -------------------------------------------------
+            // SUCCESS MESSAGE
+            // -------------------------------------------------
 
-            successBox.style.display = "block";
+            if (successBox) {
+
+                successBox.textContent =
+                    "Login successful! Redirecting...";
+
+                successBox.style.display =
+                    "block";
+            }
 
 
-            submitButton.textContent =
-                "Signed In ✓";
+            if (submitButton) {
+
+                submitButton.textContent =
+                    "Signed In ✓";
+            }
 
 
-            // Redirect to profile
+            // -------------------------------------------------
+            // REDIRECT TO PROFILE
+            // -------------------------------------------------
+
             setTimeout(function () {
 
                 window.location.href =
@@ -701,20 +775,40 @@ if (loginForm) {
 
         } catch (error) {
 
-            console.error("Login error:", error);
+            console.error(
+                "Login error:",
+                error
+            );
 
 
-            errorBox.textContent =
-                error.message ||
-                "Invalid email or password.";
+            // -------------------------------------------------
+            // SHOW ERROR
+            // -------------------------------------------------
 
-            errorBox.style.display = "block";
+            if (errorBox) {
+
+                errorBox.textContent =
+                    error.message ||
+                    "Invalid email or password.";
+
+                errorBox.style.display =
+                    "block";
+            }
 
 
-            submitButton.disabled = false;
+            // -------------------------------------------------
+            // RESTORE BUTTON
+            // -------------------------------------------------
 
-            submitButton.textContent =
-                "Sign In →";
+            if (submitButton) {
+
+                submitButton.disabled =
+                    false;
+
+                submitButton.textContent =
+                    "Sign In →";
+            }
+
         }
 
     });
